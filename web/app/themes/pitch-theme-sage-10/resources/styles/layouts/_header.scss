@@ -1,0 +1,309 @@
+#o-wrapper {
+  z-index: 999;
+  position: sticky;
+  font-size: 1rem;
+  padding: 25px 40px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  transition: all 0.4s;
+
+  @media (max-width: 1499.98px) {
+    padding: 25px 15px;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 12px 24px;
+  }
+
+  .logo {
+    width: 140px;
+    min-width: 140px;
+    max-width: 100%;
+    margin-right: 40px;
+
+    @include media-breakpoint-down(md) {
+      width: 97.5px;
+      min-width: 97.5px;
+    }
+  }
+
+  a {
+    font-family: $nexa;
+
+    &:hover {
+      color: $darkOrange;
+    }
+  }
+
+  a.btn.btn-primary {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10.02px 17.5px;
+    margin-left: 30px;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .toggle-switch-container {
+    width: 323px;
+    align-content: center;
+    padding: 0;
+
+    @include media-breakpoint-down(md) {
+      width: 185px;
+    }
+
+    .toggle-switch {
+      width: 10px;
+      position: relative;
+      margin: 0;
+
+      input {
+        position: absolute;
+        top: 0;
+        z-index: 2;
+        opacity: 0;
+        cursor: pointer;
+
+        &:checked {
+          z-index: 1;
+        }
+
+        &:checked + label {
+          color: $orange;
+          opacity: 1;
+          cursor: default;
+        }
+      }
+
+      label {
+        color: black;
+        cursor: pointer;
+      }
+
+      .toggle-outside {
+        height: 100%;
+        border-radius: 17px;
+        padding: 11px;
+        overflow: hidden;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .toggle-inside {
+        border-radius: 50%;
+        background: white;
+        position: absolute;
+        transition: all 0.1s ease-in-out;
+      }
+    }
+
+    .switch-vertical {
+      background-color: #00f;
+      width: 0;
+      height: 56px;
+      margin-left: 27px;
+
+      input {
+        height: 100%;
+        width: 60px;
+        right: 0;
+        margin: 0;
+      }
+
+      label {
+        font-size: 14px;
+        line-height: 30px;
+        display: block;
+        width: 323px;
+        height: 50%;
+        margin: 0;
+        text-align: left;
+        padding-left: 12px;
+      }
+
+      .toggle-outside {
+        background: $orange;
+        position: absolute;
+        width: 26px;
+        height: 100%;
+        right: 0;
+        top: 0;
+      }
+
+      .toggle-inside {
+        height: 20px;
+        left: 3px;
+        top: 3px;
+        width: 20px;
+      }
+    }
+  }
+
+  .switch-vertical input:checked ~ .toggle-outside .toggle-inside {
+    top: 3px;
+  }
+
+  .switch-vertical input ~ input:checked ~ .toggle-outside .toggle-inside {
+    top: 33px;
+  }
+
+  .nav-primary {
+    padding: 0;
+
+    ul.nav {
+      display: flex;
+      justify-content: space-around;
+
+      li {
+        margin: 0 5px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        a {
+          font-family: $nexa;
+          color: $darkGrey;
+          padding: 12.5px 10px;
+
+          &:hover {
+            text-decoration: none;
+          }
+
+          &.dropdown-toggle {
+            position: relative;
+            padding: 12.5px 38px 12.5px 10px;
+
+            &::after {
+              content: url("../../images/arrow-down.svg");
+              position: absolute;
+              right: 15px;
+              top: 47%;
+              transform: translateY(-50%);
+              border: 0;
+              vertical-align: inherit;
+              margin-left: inherit;
+              transition: all 0.2s;
+            }
+
+            &.show,
+            &:hover {
+              background-color: $lightGrey;
+
+              &::after {
+                top: 59%;
+                transform: translateY(-50%) rotate(180deg);
+                transition: all 0.2s;
+              }
+            }
+          }
+        }
+
+        &.current-menu-parent,
+        &.current_page_item {
+          a {
+            color: black;
+            background-color: $lightGrey;
+          }
+        }
+
+        ul.dropdown-menu {
+          border: none;
+          left: 0;
+          margin-top: 0;
+          background: transparent;
+
+          div {
+            margin-top: 17px;
+            padding: 30px 40px;
+            border-radius: 10px;
+            background-color: $lightGrey;
+
+            li {
+              margin: 0;
+
+              &:first-child {
+                margin-top: 0;
+              }
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+
+              .dropdown-item {
+                position: relative;
+                display: inline-block;
+                width: auto;
+
+                &::after {
+                  content: url("../../images/arrow-down.svg");
+                  position: absolute;
+                  display: inline-block;
+                  margin-left: 10px;
+                  top: 50%;
+                  transform: translateY(-50%) rotate(-90deg);
+                  transition: margin-left 0.3s;
+                }
+
+                &.active,
+                &:hover {
+                  color: $orange;
+                  background-color: $lightGrey;
+
+                  &::after {
+                    content: url("../../images/arrow-submenu-orange.svg");
+                    margin-left: 20px;
+                    transform: translateY(-50%) rotate(-90deg);
+                    transition: margin-left 0.3s;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.nav-is-stuck #o-wrapper {
+  padding: 15px 40px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 50%);
+  transition: all 0.4s;
+
+  @media (max-width: 1499.98px) {
+    padding: 15px;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 12px 24px;
+  }
+
+  .nav-primary ul.nav li ul.dropdown-menu div {
+    margin-top: 7px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .navbar .nav-item .dropdown-menu {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  .navbar .nav-item:hover .dropdown-menu {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s;
+  }
+}

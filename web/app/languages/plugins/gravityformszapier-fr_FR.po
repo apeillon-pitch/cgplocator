@@ -1,0 +1,177 @@
+# Translation of RocketGenius - Gravity Forms Zapier Add-On in French (France)
+# This file is distributed under the same license as the RocketGenius - Gravity Forms Zapier Add-On package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-07-23 08:59:30+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.0-alpha.3\n"
+"Language: fr\n"
+"Project-Id-Version: RocketGenius - Gravity Forms Zapier Add-On\n"
+
+#: includes/rest/class-zapier-controller.php:25
+msgid "Form not found."
+msgstr "Formulaire non trouvé."
+
+#: includes/rest/class-sample-entries-controller.php:35
+msgid "Indicates if admin labels should be used instead of frontend labels."
+msgstr "Indique si les libellés de l’administration doivent être utilisés à la place des libellés de l’interface publique."
+
+#: includes/rest/class-feeds-controller.php:56
+msgid "Feed not found."
+msgstr "Flux introuvable."
+
+#. Translators: 1. Opening <a> tag for link to Zapier, 2. Closing <a> tag. 3.
+#. Opening <a> tag for link to Gravity Forms Zapier documentation. 4. Closing
+#. <a> tag.
+#: includes/class-feeds-list-table.php:34
+msgid "Zapier feeds are created automatically when %1$szaps are configured%2$s on zapier.com. %3$sLearn more%4$s."
+msgstr "Les flux Zapier sont créés automatiquement lorsque des %1$szaps sont configurés%2$s sur zapier.com. %3$sEn savoir plus%4$s."
+
+#. Translators: 1. Opening <a> tag for link to Zapier, 2. Closing <a> tag.
+#: class-gf-zapier.php:1593
+msgid "Simply %1$screate a zap%2$s on zapier.com."
+msgstr "%1$sCréez simplement un zap%2$s sur zapier.com."
+
+#: class-gf-zapier.php:1522
+msgid "Display Zapier feeds in the form settings"
+msgstr "Afficher les flux Zapier dans les réglages du formulaire "
+
+#: class-gf-zapier.php:1519
+msgid "Show or hide the Zapier feed(s) on the Form > Settings > Zapier Feeds screen. This is intended for advanced users and should only be enabled when instructed by support."
+msgstr "Affichez ou masquez le(s) flux Zapier sur l’écran Formulaire > Réglages > Flux Zapier. Cette option est destinée aux personnes avancées et ne doit être activée que lorsque le support vous le demande."
+
+#: class-gf-zapier.php:1518
+msgid "Zapier Feeds"
+msgstr "Flux Zapier"
+
+#: class-gf-zapier.php:1513
+msgid "Advanced Settings"
+msgstr "Réglages avancés"
+
+#: class-gf-zapier.php:498
+msgid "Zap URL"
+msgstr "URL Zap"
+
+#: class-gf-zapier.php:408 class-gf-zapier.php:415
+msgid "URL"
+msgstr "URL"
+
+#: class-gf-zapier.php:395 class-gf-zapier.php:402 class-gf-zapier.php:497
+msgid "Name"
+msgstr "Nom"
+
+#. translators: Placeholders represent opening and closing link tag.
+#: includes/setup-instructions.php:91
+msgid "%1$sCreate a Zap%2$s on zapier.com."
+msgstr "%1$sCréer un Zap%2$s sur zapier.com."
+
+#: includes/setup-instructions.php:87
+msgid "Create a form."
+msgstr "Créer un formulaire."
+
+#: includes/setup-instructions.php:83
+msgid "Save the REST API settings."
+msgstr "Enregistrer les réglages de l’API REST."
+
+#. translators: Placeholders represent opening and closing strong tag.
+#: includes/setup-instructions.php:78
+msgid "Save the new key and copy the %1$sConsumer Key%2$s and %1$sConsumer Secret%2$s. You will need them to create your Zap."
+msgstr "Enregistrez la nouvelle clé et copiez la %1$sclé client%2$s et le %1$ssecret client%2$s. Vous en aurez besoin pour créer votre Zap."
+
+#. translators: Placeholders represent opening and closing strong tag.
+#: includes/setup-instructions.php:70
+msgid "Select the %1$sRead/Write%2$s permission."
+msgstr "Sélectionnez les droits en %1$sLecture / Écriture%2$s."
+
+#. translators: Placeholders represent opening and closing strong tag.
+#: includes/setup-instructions.php:62
+msgid "Select a %1$sUser%2$s account with permissions to view and edit entries."
+msgstr "Sélectionnez un compte %1$sUtilisateur%2$s ayant les droits nécessaires pour afficher et modifier les entrées."
+
+#. translators: Placeholders represent opening and closing strong tag.
+#: includes/setup-instructions.php:54
+msgid "Enter a %1$sDescription%2$s to uniquely identify the key."
+msgstr "Saisissez une %1$sDescription%2$s pour identifier la clé de façon unique."
+
+#. translators: Placeholders represent opening and closing strong tag.
+#: includes/setup-instructions.php:46
+msgid "Click %1$sAdd Key%2$s under the %1$sAuthentication (API version 2)%2$s section."
+msgstr "Cliquez sur %1$sAjouter une clé%2$s sous la section %1$sAuthentification (API version 2)%2$s."
+
+#. translators: Placeholders represent opening and closing strong tag.
+#: includes/setup-instructions.php:38
+msgid "Check %1$sEnable access to the API%2$s."
+msgstr "Cochez %1$sActiver l’accès à l’API%2$s."
+
+#. translators: Placeholders represent opening and closing link tag.
+#: includes/setup-instructions.php:30
+msgid "Navigate to the %1$sREST API settings page%2$s."
+msgstr "Rendez-vous sur la page des %1$sréglages de l'API REST%2$s."
+
+#: includes/setup-instructions.php:23
+msgid "View Instructions"
+msgstr "Voir les instructions"
+
+#: includes/setup-instructions.php:21
+msgid "Enable the REST API and create a Gravity Forms API Key."
+msgstr "Activer l’API REST et créer une clé d’API Gravity Forms."
+
+#: includes/setup-instructions.php:18
+msgid "Connect to Zapier in 3 easy steps."
+msgstr "Connectez-vous à Zapier en 2 étapes simples."
+
+#. Author of the plugin
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
+
+#: class-gf-zapier.php:171
+msgid "Send feed to Zapier only when payment is received."
+msgstr "Envoyer le message vers Zapier uniquement lorsque le paiement est reçu."
+
+#: class-gf-zapier.php:439
+msgid "By default the field labels will be sent to Zapier. Enable this option to send the field admin labels when available."
+msgstr "Par défaut, les libellés du champ seront envoyés à Zapier. Activez cette option pour envoyer les libellés du champ d’admin si disponibles."
+
+#: class-gf-zapier.php:466
+msgid "When Conditional Logic is enabled, submissions for this form will only be sent to Zapier when the condition is met. When disabled, all submissions for this form will be sent to Zapier."
+msgstr "Quand la logique conditionnelle est activée, les envois de formulaire seront publiés vers Zapier uniquement lorsque la condition est remplie. Si désactivée, tous les envois de formulaires seront envoyés vers Zapier. "
+
+#: class-gf-zapier.php:461 class-gf-zapier.php:465
+msgid "Conditional Logic"
+msgstr "Logique conditionnelle"
+
+#: class-gf-zapier.php:416
+msgid "This is the URL provided by Zapier when you created your Zap on their website. This is the location to which your form data will be submitted to Zapier for additional processing."
+msgstr "Ceci est l’URL fournie par Zapier lorsque vous avez créé votre Zap sur leur site. Ceci est l’emplacement auquel les données de votre formulaire seront envoyées sur Zapier pour un traitement supplémentaire."
+
+#: class-gf-zapier.php:403
+msgid "This is a friendly name so you know what Zap is run when this form is submitted."
+msgstr "Ceci est un nom reconnaissable pour que vous sachiez quel Zap s’exécute lorsque ce formulaire est envoyé."
+
+#: class-gf-zapier.php:591
+msgid "Form Title"
+msgstr "Titre du formulaire"
+
+#: class-gf-zapier.php:590
+msgid "Form ID"
+msgstr "ID du formulaire"
+
+#: class-gf-zapier.php:421 class-gf-zapier.php:438
+msgid "Use Admin Labels"
+msgstr "Utiliser les libellés de l’administration"
+
+#. Description of the plugin
+msgid "Integrates Gravity Forms with Zapier, allowing form submissions to be automatically sent to your configured Zaps."
+msgstr "L’intégration de Gravity Forms avec Zapier permet d’envoyer automatiquement les formulaires soumis vers vos Zaps configurées."
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://gravityforms.com"
+msgstr "https://gravityforms.com"
+
+#. Plugin Name of the plugin
+msgid "Gravity Forms Zapier Add-On"
+msgstr "Gravity Forms Zapier Add-on"

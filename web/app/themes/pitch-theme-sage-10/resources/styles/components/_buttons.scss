@@ -1,0 +1,143 @@
+a,
+button {
+  &:active {
+    outline: none;
+    border: 0;
+    color: inherit;
+    background-color: inherit;
+  }
+
+  &.btn {
+    font-family: $nexa;
+    border-radius: 7px;
+
+    &.btn-primary {
+      font-size: 1.125rem;
+      font-weight: 800;
+      color: white;
+      padding: 15px 25px;
+      transition: all 0.3s;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 0.875rem;
+        padding: 15px 20px;
+      }
+
+      &:hover,
+      &:active {
+        color: white;
+        background-color: $darkOrange;
+        transition: all 0.3s;
+      }
+    }
+
+    &.btn-animated {
+      position: relative;
+      display: flex;
+      width: fit-content;
+      height: 56px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: $orange;
+      padding: 0 12px;
+      align-items: center;
+
+      &:active {
+        color: $orange;
+      }
+
+      span {
+        position: relative;
+        z-index: 8;
+        padding: 2px 0;
+        background-color: white;
+      }
+
+      &.pdf {
+        padding-right: 39px;
+
+        &::after {
+          content: url("../../images/pdf.svg");
+          position: absolute;
+          display: block;
+          right: 14px;
+          top: 50%;
+          transform: translateY(-50%);
+          transition: all 0.3s;
+        }
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 0;
+        width: 56px;
+        height: 56px;
+        border: 1px solid $orange;
+        border-radius: 7px;
+        transform: translateY(-50%);
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        &::before {
+          content: "";
+          width: 100%;
+          transition: all 0.3s;
+        }
+      }
+    }
+
+    &.btn-simple {
+      position: relative;
+      font-family: $nexa;
+      color: $orange;
+      padding: 0 29px 0 0;
+      border: 0 !important;
+
+      &:active {
+        border: 0 !important;
+        color: $orange;
+      }
+
+      &::after {
+        content: url("../../images/btn-arrow.svg");
+        position: absolute;
+        display: block;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s;
+      }
+
+      &.pdf {
+        padding: 0 39px 0 0;
+
+        &::after {
+          content: url("../../images/pdf.svg");
+          top: 60%;
+        }
+      }
+
+      &:hover {
+        &::after {
+          right: 0;
+          transition: all 0.3s;
+        }
+      }
+    }
+  }
+
+  &:focus,
+  &:focus-within {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}
+
+.share-button.st-custom-button:hover {
+  cursor: pointer;
+}

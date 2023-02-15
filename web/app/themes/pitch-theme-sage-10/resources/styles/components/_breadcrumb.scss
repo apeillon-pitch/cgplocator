@@ -1,0 +1,17 @@
+.breadcrumb {
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  font-size: 0.75rem;
+  color: $mediumGrey;
+  padding: 15px 0;
+
+  a {
+    font-size: 0.75rem;
+    color: $mediumGrey;
+  }
+
+  .fa-chevron-right {
+    font-size: 10px;
+  }
+}

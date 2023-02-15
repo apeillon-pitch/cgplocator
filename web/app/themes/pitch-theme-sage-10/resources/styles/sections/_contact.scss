@@ -1,0 +1,26 @@
+.section {
+  &.contact-form {
+    .wrapper {
+      border-radius: 10px;
+      padding: 50px 0;
+      background-color: $lightGrey;
+
+      .section-title {
+        font-size: 1.375rem;
+        margin-bottom: 50px;
+
+        @include media-breakpoint-down(md) {
+          font-size: 1.25rem;
+        }
+
+        &.highlighted {
+          font-size: 2.25rem;
+
+          @include media-breakpoint-down(md) {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+}

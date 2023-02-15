@@ -1,0 +1,151 @@
+footer {
+  font-size: 1rem;
+  padding: 50px 0 18px;
+  background-color: white;
+
+  .col {
+    .wrapper {
+      padding: 0 0.75rem;
+    }
+
+    @include media-breakpoint-down(lg) {
+      margin-bottom: 30px;
+    }
+
+    &:first-child {
+      max-width: 175px;
+
+      @include media-breakpoint-down(lg) {
+        max-width: 100%;
+        padding-right: 81px;
+        padding-left: 0.75rem;
+        margin-bottom: 30px;
+      }
+
+      img {
+        &.logo {
+          min-width: 125px;
+          width: 125px;
+          margin-bottom: 20px;
+
+          @include media-breakpoint-down(lg) {
+            min-width: 185px;
+            width: 185px;
+          }
+        }
+      }
+
+      .baseline {
+        font-family: $nexa;
+        font-size: 0.875rem;
+        font-weight: 800;
+        line-height: 1.3;
+
+        @include media-breakpoint-down(lg) {
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    &:last-child {
+      @include media-breakpoint-down(lg) {
+        margin-bottom: 0;
+      }
+
+      .wrapper {
+        padding-right: 0;
+      }
+    }
+  }
+
+  .title {
+    display: block;
+    font-family: $nexa;
+    font-weight: 600;
+    color: $orange;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+
+    li {
+      margin-bottom: 18px;
+
+      @include media-breakpoint-up(xl) {
+        white-space: nowrap;
+      }
+
+      a {
+        color: $darkGrey;
+        line-height: 1.5;
+
+        &:hover {
+          color: $orange;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .legal-section {
+    border-top: 1px solid $darkGrey;
+    margin-top: 22px;
+    padding-top: 18px;
+
+    span {
+      font-weight: 300;
+      color: $mediumGrey;
+
+      @include media-breakpoint-down(lg) {
+        margin: 10px 0;
+      }
+    }
+
+    a {
+      position: relative;
+      font-weight: 300;
+      color: $darkGrey;
+      padding-right: 10px;
+      margin-right: 10px;
+
+      @include media-breakpoint-down(lg) {
+        padding: 0;
+        margin: 10px 0;
+      }
+
+      &:hover {
+        color: $orange;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 1px;
+        height: 20px;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $mediumGrey;
+
+        @include media-breakpoint-down(lg) {
+          content: none;
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+        padding-right: 0;
+
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}

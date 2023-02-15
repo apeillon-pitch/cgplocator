@@ -1,0 +1,152 @@
+.section-accordion {
+  .section-title {
+    font-size: 2.25rem;
+
+    @include media-breakpoint-down(md) {
+      font-size: 1.25rem;
+    }
+  }
+
+  .accordion {
+    .accordion-item {
+      border: 0;
+      border-radius: 10px;
+      margin-bottom: 25px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a.accordion-button {
+        font-family: $nexa;
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: $orange;
+        border-radius: 10px 10px 0 0 !important;
+        box-shadow: none;
+        padding: 6px 60px 6px 6px;
+        background-color: $pastel;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        @include media-breakpoint-down(lg) {
+          font-size: 1.5rem;
+        }
+
+        @include media-breakpoint-down(md) {
+          font-size: 1rem;
+          padding: 10px 60px 10px 6px !important;
+        }
+
+        &::after {
+          position: absolute;
+          right: 0;
+          top: 42%;
+          margin-right: 20px;
+          margin-left: 20px;
+          content: url("../../images/arrow-accordion-black.svg");
+          background-image: none;
+
+          @include media-breakpoint-down(lg) {
+            margin-right: 10px;
+            margin-left: 10px;
+          }
+        }
+
+        &:not(.collapsed)::after {
+          content: url("../../images/arrow-accordion-orange.svg");
+          background-image: none;
+        }
+
+        span {
+          font-size: 2.25rem;
+          line-height: 1.4;
+          padding: 4px 7px;
+          margin-right: 25px;
+          border-radius: 10px;
+          background-color: white;
+
+          @include media-breakpoint-down(lg) {
+            font-size: 2rem;
+            margin-right: 20px;
+          }
+
+          @include media-breakpoint-down(md) {
+            font-size: 2rem;
+            margin-right: 15px;
+          }
+        }
+
+        &.empty-text {
+          &:hover {
+            cursor: auto;
+          }
+
+          &::after {
+            content: none;
+          }
+        }
+      }
+
+      .accordion-body {
+        border: 0;
+        border-radius: 0 0 10px 10px;
+        padding: 50px 65px 50px 97px;
+        background-color: $lightGrey;
+
+        @include media-breakpoint-down(md) {
+          padding: 30px 35px 30px 37px;
+        }
+      }
+    }
+  }
+}
+
+.section.block-repeater.style-one {
+  .accordion {
+    .accordion-item {
+      border: 0;
+      border-radius: 0;
+      padding: 20px 0;
+      border-bottom: 1px solid $mediumGrey;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a.accordion-button {
+        font-family: $nexa;
+        font-size: 1rem;
+        font-weight: 800;
+        color: $darkGrey;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        background-color: white;
+
+        &::after {
+          content: url("../../images/arrow-accordion-black.svg");
+          background-image: none;
+        }
+
+        &:not(.collapsed)::after {
+          content: url("../../images/arrow-accordion-orange.svg");
+          background-image: none;
+        }
+
+        img {
+          max-width: 35px;
+        }
+      }
+
+      .accordion-body {
+        border: 0;
+        border-radius: 0;
+        padding: 10px 20px 0 0;
+        background-color: white;
+      }
+    }
+  }
+}

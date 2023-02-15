@@ -1,0 +1,289 @@
+.section {
+  &.hero {
+    &.style-one,
+    &.default-folder {
+      height: 555px;
+      overflow: hidden;
+
+      @include media-breakpoint-down(lg) {
+        height: inherit;
+      }
+
+      .container-lg {
+        @include media-breakpoint-down(lg) {
+          padding: 0;
+        }
+      }
+
+      .wrapper-content {
+        position: relative;
+        height: 100%;
+        z-index: 8;
+
+        @include media-breakpoint-up(lg) {
+          padding: 50px 0 25px;
+        }
+
+        @include media-breakpoint-only(lg) {
+          padding-bottom: 40px;
+        }
+      }
+
+      .section-title {
+        font-size: 2.25rem;
+        margin-bottom: 25px;
+
+        @include media-breakpoint-down(lg) {
+          margin-top: 10px;
+        }
+
+        @include media-breakpoint-down(md) {
+          font-size: 1.3755rem;
+          line-height: 1.2;
+          margin-top: 20px;
+        }
+      }
+
+      .wrapper-cta {
+        display: block;
+        margin-top: 9px;
+
+        @include media-breakpoint-down(sm) {
+          margin-top: 4px;
+        }
+
+        a.btn {
+          display: inline-block;
+          font-size: 1.125rem;
+          margin-bottom: 25px;
+
+          @include media-breakpoint-down(sm) {
+            font-size: 1rem;
+            margin-bottom: 20px;
+          }
+        }
+      }
+
+      .bg-image {
+        &.mobile {
+          position: relative;
+          width: 100%;
+          height: 500px;
+          background-position: center center;
+          background-size: cover;
+          background-repeat: no-repeat;
+
+          @include media-breakpoint-down(md) {
+            height: 425px;
+          }
+
+          @include media-breakpoint-down(sm) {
+            height: 300px;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            bottom: -1px;
+            right: -1px;
+            height: calc(100% + 1px);
+            width: calc(100% + 1px);
+            -webkit-clip-path: polygon(101% 389px, -18% 101%, 101% 114%);
+            clip-path: polygon(101% 389px, -18% 101%, 101% 114%);
+            background-color: $pastel;
+
+            @include media-breakpoint-only(md) {
+              -webkit-clip-path: polygon(101% 430px, -18% 101%, 101% 114%);
+              clip-path: polygon(101% 430px, -18% 101%, 101% 114%);
+            }
+
+            @include media-breakpoint-down(md) {
+              -webkit-clip-path: polygon(125% 260px, -9% 101%, 101% 114%);
+              clip-path: polygon(125% 260px, -9% 101%, 101% 114%);
+            }
+          }
+        }
+      }
+
+      .wrapper-bg-image {
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        top: 0;
+        left: 0;
+        padding-left: 39px;
+
+        & * {
+          height: 100%;
+        }
+
+        .bg-image {
+          &.desktop {
+            position: relative;
+            background-size: cover;
+            background-position: center right;
+            background-repeat: no-repeat;
+            overflow-y: hidden;
+
+            &::before {
+              content: "";
+              position: absolute;
+              display: block;
+              top: -1px;
+              left: -1px;
+              height: calc(100% + 1px);
+              width: 100%;
+              -webkit-clip-path: polygon(0 0, 0 100%, 100% 0);
+              clip-path: polygon(0 0, 0% 100%, 178px 0);
+              background-color: $pastel;
+            }
+          }
+        }
+
+        .rectangular-bars {
+          display: block;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          overflow: visible;
+
+          &::before,
+          &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            height: 59.5px;
+            background-color: $orange;
+          }
+
+          &::before {
+            top: 0;
+            right: 0;
+            width: 236px;
+            border-top: 50px solid $orange;
+            transform: skew(-18deg);
+          }
+
+          &::after {
+            bottom: -1px;
+            left: -48px;
+            width: 421.2px;
+            background-color: $orange;
+            transform: skew(-18deg);
+          }
+        }
+      }
+    }
+
+    &.style-two,
+    &.default-article {
+      min-height: 268px;
+      padding: 75px 0 0;
+
+      .section-title {
+        font-size: 2.25rem;
+
+        @include media-breakpoint-down(md) {
+          font-size: 2rem !important;
+        }
+      }
+
+      .bg-color {
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        -webkit-clip-path: polygon(0 0, 0 77%, 220% 0);
+        clip-path: polygon(0 0, 0 85%, 220% 0);
+
+        @include media-breakpoint-down(sm) {
+          -webkit-clip-path: polygon(0 0, 0 100%, 300% 0);
+          clip-path: polygon(0 0, 0 100%, 300% 0);
+        }
+
+        &.pastelRose {
+          background-color: $pastel;
+        }
+
+        &.pastelBlue {
+          background-color: $pastel;
+        }
+      }
+
+      .wrapper-content {
+        position: relative;
+        z-index: 8;
+
+        .wrapper-heading {
+          margin-bottom: 75px;
+
+          @include media-breakpoint-down(sm) {
+            margin-bottom: 20px;
+          }
+
+          .section-title {
+            margin-bottom: 0;
+          }
+
+          &.title-margin {
+            .section-title {
+              margin-bottom: 25px;
+            }
+          }
+
+          p:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        .bg-image {
+          height: 332px;
+          width: 100%;
+          border-radius: 10px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+
+          @include media-breakpoint-down(sm) {
+            height: 150px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.blog,
+.page-template-template-list {
+  .section {
+    &.hero {
+      &.style-two {
+        margin-bottom: 0;
+
+        @include media-breakpoint-down(sm) {
+          min-height: 195px;
+        }
+
+        .bg-color {
+          @include media-breakpoint-down(sm) {
+            -webkit-clip-path: polygon(0 0, 0 100%, 300% 0);
+            clip-path: polygon(0 0, 0 100%, 300% 0);
+          }
+        }
+      }
+    }
+  }
+}
+
+.single-case_study .section.hero.default-folder .wrapper-bg-image .bg-image.desktop {
+  background-position: center center;
+}
+
+.single-case_study .section.hero.default-folder .bg-image.mobile::after {
+  background-color: $pastel;
+}

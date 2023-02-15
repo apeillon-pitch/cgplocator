@@ -1,0 +1,63 @@
+#wrapper-blog-filter {
+  margin-bottom: 50px;
+
+  @include media-breakpoint-down(sm) {
+    margin-top: 35px;
+  }
+
+  #blog-filter {
+    margin-bottom: 0;
+  }
+
+  strong {
+    font-family: $nexa;
+    font-size: 1.375rem;
+    font-weight: 800;
+  }
+
+  span.title {
+    font-size: 0.875rem;
+    color: $mediumGrey;
+    margin-right: 10px;
+  }
+
+  form {
+    select {
+      &.form-select {
+        font-family: $nexa;
+        font-weight: 800;
+        font-size: 0.875rem;
+        border: 0;
+        padding: 3px 33px 3px 0;
+      }
+
+      &:focus,
+      &:focus-visible,
+      &:focus-within {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+}
+
+#reset {
+  position: relative;
+
+  a {
+    position: absolute;
+    font-size: 0.875rem;
+    font-weight: 700;
+    right: 13px;
+    top: 4px;
+
+    @include media-breakpoint-down(md) {
+      right: inherit;
+      left: 0;
+    }
+
+    &:hover {
+      color: $orange;
+    }
+  }
+}

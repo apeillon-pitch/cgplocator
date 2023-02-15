@@ -1,0 +1,39 @@
+.widget-contact {
+  .wrapper-section-cta {
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 93px 97px 108px;
+    background-color: $orange;
+
+    @include media-breakpoint-down(md) {
+      padding: 20px 32px;
+    }
+
+    .section-title {
+      margin-bottom: 25px;
+
+      @include media-breakpoint-down(sm) {
+        margin-bottom: 10px;
+      }
+    }
+
+    .wrapper-cta {
+      margin-top: 25px;
+
+      @include media-breakpoint-down(sm) {
+        margin-top: 20px;
+      }
+
+      .btn-primary {
+        color: $orange;
+        background-color: white;
+
+        &:hover {
+          color: $orange;
+          background-color: #fff6f1;
+        }
+      }
+    }
+  }
+}

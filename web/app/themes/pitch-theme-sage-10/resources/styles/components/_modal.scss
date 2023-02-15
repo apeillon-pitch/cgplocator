@@ -1,0 +1,124 @@
+#loginModal {
+  .modal-dialog {
+    max-width: 100%;
+    margin: 0;
+
+    .modal-content {
+      height: 100%;
+      border: 0;
+      border-radius: 0;
+
+      .modal-header {
+        padding: 25px 40px;
+        border: 0;
+
+        /* .close {
+          height: 70px;
+          width: 70px;
+          font-size: 28px;
+          color: white;
+          outline: none;
+          box-shadow: none;
+          border: 0;
+          border-radius: 10px;
+          background-color: $orange;
+
+          &:hover {
+            background-color: $darkOrange;
+          }
+        } */
+
+        .close {
+          font-size: 28px;
+          color: black;
+          outline: none;
+          box-shadow: none;
+          border: 0;
+          border-radius: 0;
+          background-color: white;
+
+          &:hover {
+            color: $orange;
+            background-color: white;
+          }
+        }
+
+        .logo {
+          width: 140px;
+          min-width: 140px;
+          max-width: 100%;
+
+          @include media-breakpoint-down(md) {
+            width: 97.5px;
+            min-width: 97.5px;
+          }
+        }
+      }
+
+      .modal-body {
+        .section-title {
+          font-size: 2.25rem;
+          line-height: 1.4;
+          margin: 6px 0 20px;
+        }
+
+        .wrapper {
+          padding: 20px;
+          border-radius: 15px;
+          background-color: $pastel;
+
+          .block-title {
+            font-weight: 800;
+            line-height: 1.4;
+            margin-bottom: 17px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#site-selector {
+  .modal-dialog {
+    .modal-content {
+      border: 0;
+      background-color: transparent;
+
+      .wrapper-block {
+        position: relative;
+        padding: 100px 50px 50px;
+        border-radius: 10px;
+        background-color: $pastel;
+
+        .wrapper-icon {
+          width: 152px;
+          height: 153px;
+          display: flex;
+          position: absolute;
+          align-items: center;
+          justify-content: center;
+          border-radius: 100%;
+          left: 50%;
+          top: -70px;
+          transform: translateX(-50%);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.21);
+          background-color: $pastel;
+        }
+
+        strong {
+          font-size: 28px;
+          font-weight: 800;
+          margin-bottom: 25px;
+        }
+      }
+
+      p {
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+.modal-backdrop.show {
+  opacity: 0.8 !important;
+}
