@@ -638,6 +638,199 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_63ee019301574": {
+                    "key": "layout_63ee019301574",
+                    "name": "section_hero_style_three",
+                    "label": "Section Hero - Style 3",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_63ee019301575",
+                            "label": "Titre de la section",
+                            "name": "section_title_group",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_63ee019301576",
+                                    "label": "Valeur SEO du titre",
+                                    "name": "heading_value",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "30",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "h1": "H1",
+                                        "h2": "H2",
+                                        "h3": "H3",
+                                        "h4": "H4",
+                                        "h5": "H5",
+                                        "h6": "H6"
+                                    },
+                                    "default_value": "h1",
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 1,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_63ee019301577",
+                                    "label": "Titre",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "70",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "rows": 2,
+                                    "placeholder": "",
+                                    "new_lines": "br"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_63ee019301578",
+                            "label": "Introduction",
+                            "name": "introduction",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_63ee019301580",
+                            "label": "Image",
+                            "name": "image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_63ee019301581",
+                            "label": "Espacement entre sections",
+                            "name": "padding_group",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_63ee019401582",
+                                    "label": "Espacement haut",
+                                    "name": "padding_top",
+                                    "aria-label": "",
+                                    "type": "radio",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "pt-none": "Aucun espacement",
+                                        "pt-medium": "Espacement moyen",
+                                        "pt-important": "Espacement important"
+                                    },
+                                    "default_value": "pt-medium",
+                                    "return_format": "value",
+                                    "allow_null": 0,
+                                    "other_choice": 0,
+                                    "save_other_choice": 0,
+                                    "layout": "vertical"
+                                },
+                                {
+                                    "key": "field_63ee019401583",
+                                    "label": "Espacement bas",
+                                    "name": "padding_bottom",
+                                    "aria-label": "",
+                                    "type": "radio",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "pb-none": "Aucun espacement",
+                                        "pb-medium": "Espacement moyen",
+                                        "pb-important": "Espacement important"
+                                    },
+                                    "default_value": "pb-medium",
+                                    "return_format": "value",
+                                    "allow_null": 0,
+                                    "other_choice": 0,
+                                    "save_other_choice": 0,
+                                    "layout": "vertical"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_6272a71c59261": {
                     "key": "layout_6272a71c59261",
                     "name": "section_text_style_one",
@@ -9025,6 +9218,154 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_63ee09f5de16f": {
+                    "key": "layout_63ee09f5de16f",
+                    "name": "section_form_cgp",
+                    "label": "Section formulaire CGP",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_63ee09f5de170",
+                            "label": "Titre de la section",
+                            "name": "section_title_group",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_63ee09f5de171",
+                                    "label": "Valeur SEO du titre",
+                                    "name": "heading_value",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "30",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "h1": "H1",
+                                        "h2": "H2",
+                                        "h3": "H3",
+                                        "h4": "H4",
+                                        "h5": "H5",
+                                        "h6": "H6"
+                                    },
+                                    "default_value": "h2",
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 1,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_63ee09f5de172",
+                                    "label": "Titre",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "70",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "rows": 2,
+                                    "placeholder": "",
+                                    "new_lines": "br"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_63ee09f5de175",
+                            "label": "Espacement entre sections",
+                            "name": "padding_group",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_63ee09f5de176",
+                                    "label": "Espacement haut",
+                                    "name": "padding_top",
+                                    "aria-label": "",
+                                    "type": "radio",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "pt-none": "Aucun espacement",
+                                        "pt-medium": "Espacement moyen",
+                                        "pt-important": "Espacement important"
+                                    },
+                                    "default_value": "pt-medium",
+                                    "return_format": "value",
+                                    "allow_null": 0,
+                                    "other_choice": 0,
+                                    "save_other_choice": 0,
+                                    "layout": "vertical"
+                                },
+                                {
+                                    "key": "field_63ee09f5de177",
+                                    "label": "Espacement bas",
+                                    "name": "padding_bottom",
+                                    "aria-label": "",
+                                    "type": "radio",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "pb-none": "Aucun espacement",
+                                        "pb-medium": "Espacement moyen",
+                                        "pb-important": "Espacement important"
+                                    },
+                                    "default_value": "pb-medium",
+                                    "return_format": "value",
+                                    "allow_null": 0,
+                                    "other_choice": 0,
+                                    "save_other_choice": 0,
+                                    "layout": "vertical"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -9084,5 +9425,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676455447
+    "modified": 1676544644
 }

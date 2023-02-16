@@ -14,9 +14,9 @@
       </div>
       <div class="toggle-switch-container">
         <div class="toggle-switch switch-vertical">
-          <input id="toggle-a" type="radio" name="switch" checked="checked"/>
+          <input id="toggle-a" type="radio" name="switch"/>
           <label for="toggle-a">Je suis un conseiller</label>
-          <input id="toggle-b" type="radio" name="switch"/>
+          <input id="toggle-b" type="radio" name="switch" checked="checked"/>
           <label for="toggle-b">Je suis un particulier</label>
           <span class="toggle-outside">
         <span class="toggle-inside"></span>
@@ -56,7 +56,7 @@
     </div>
   </div>
   @if($mainMenu)
-    <div class="d-none d-md-flex flex-row justify-content-center mt-4">
+    <div class="d-none d-md-flex flex-row justify-content-center mt-2">
       <div id="nav-wrapper">
         <nav class="nav-primary navbar navbar-expand-md">
           {!! wp_nav_menu($mainMenu) !!}
@@ -65,27 +65,4 @@
     </div>
   @endif
 </header>
-@if (!is_front_page())
-  <div class="breadcrumb">
-    <div class="container">
-      <div class="d-none d-sm-flex flex-row align-items-center">
-        <a href="{{ home_url() }}">Accueil</a>
-        @if (is_singular('post'))
-          @if ($options_data['blog']['blog_link_url'])
-            <i class="fas fa-chevron-right ms-1 me-1"></i> <a
-              href="{{ $options_data['blog']['blog_link_url'] }}">Actualités Nortia</a>
-          @endif
-
-        @endif
-        @if (is_singular('case_study'))
-          @if ($options_data['blog']['blog_link_url'])
-            <i class="fas fa-chevron-right ms-1 me-1"></i> <a
-              href="{{ $options_data['blog']['case_studies_link_url'] }}">Nos analyses d'experts</a>
-          @endif
-        @endif
-        <i class="fas fa-chevron-right ms-1 me-1"></i> <a
-          href="{{ get_the_permalink() }}">{!! get_the_title() !!}</a>
-      </div>
-    </div>
-  </div>
-@endif
+@include('partials.template-parts.breadcrumb')

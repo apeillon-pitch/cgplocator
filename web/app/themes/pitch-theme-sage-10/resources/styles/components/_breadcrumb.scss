@@ -8,10 +8,18 @@
 
   a {
     font-size: 0.75rem;
-    color: $mediumGrey;
+    color: $orange;
   }
 
   .fa-chevron-right {
     font-size: 10px;
+  }
+
+  .wrapper-icon {
+    height: 30px;
+    width: 30px;
+    color: white;
+    border-radius: 100%;
+    background-color: $orange;
   }
 }
