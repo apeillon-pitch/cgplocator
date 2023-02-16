@@ -36,9 +36,9 @@ const main = async (err) => {
   getMobileSubmenu();
   getStickyMenu();
 
-  jQuery('input#toggle-b').click(function() {
+  jQuery('input#toggle-a').click(function() {
     setTimeout(function() {
-      document.location.href = 'https://www.figma.com/';
+      document.location.href = 'https://www.nortia.fr/';
     },400 );
   });
 
