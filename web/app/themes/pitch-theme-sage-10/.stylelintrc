@@ -16,4 +16,5 @@
     'selector-pseudo-element-colon-notation': null,
     'selector-attribute-quotes': null,
   },
+  "customSyntax": "postcss-scss",
 }
