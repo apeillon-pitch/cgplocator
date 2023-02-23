@@ -1,0 +1,19 @@
+name: nortia
+recipe: wordpress
+config:
+  php: '8.0'
+  xdebug: true
+  database: mariadb
+  webroot: web
+services:
+  pma:
+    type: phpmyadmin
+    overrides:
+      environment:
+        PMA_USER: nortia
+        PMA_PASSWORD: nortia
+  database:
+    creds:
+      user: nortia
+      password: nortia
+      database: nortia
