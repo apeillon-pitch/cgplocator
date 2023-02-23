@@ -19,6 +19,7 @@
                   <form id="cgp-locator" class="d-flex flex-row justify-content-between g-0 mb-4" action="">
                     <div class="d-flex flex-grow-1">
                       <input type="text" class="form-control h-100" placeholder="Adresse, Ville, Code postal">
+                      
                     </div>
                     <div class="d-flex">
                       <button type="submit" class="btn btn-primary"><i class="fa-regular fa-magnifying-glass"></i>
