@@ -8,7 +8,13 @@ class GeolocatorComponent
     {
     }
 
-    public static function get_posts_by_latlng($lat, $lng, $distance)
+    public static function get_posts_by_latlng($args = [
+        'lat' => 0.0,
+        'lng' => 0.0,
+        'distance' => 0.0,
+        'numberposts' => -1,
+        'offset' => 0,
+    ])
     {
         global $wpdb;
 
@@ -36,14 +42,14 @@ class GeolocatorComponent
             HAVING distance < %s
             ORDER BY distance ASC",
             $earth_radius,
-            $lat,
-            $lng,
-            $lat,
-            $distance
+            $args['lat'],
+            $args['lng'],
+            $args['lat'],
+            $args['distance'],
         );
 
         $nearbyLocations = $wpdb->get_results($sql);
-
+        
         $results = false;
 
         function get_post_ids($nearbyLocations)
@@ -62,7 +68,8 @@ class GeolocatorComponent
             ));
 
             foreach ($results as $key => $result) {
-                $result->distance = $nearbyLocations[$key]->distance;
+                $ids = array_column($nearbyLocations, 'ID');
+                $result->distance = round($nearbyLocations[array_search($key, $ids)]->distance, 2);
                 $result->meta = get_fields($result->ID);
             }
         }

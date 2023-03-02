@@ -79,11 +79,15 @@ class TestGeolocTab extends AdminSettingsPageTabAbstract
             return;
         }
 
-        $lat = $_POST['lat'];
-        $lng = $_POST['lng'];
-        $distance = $_POST['distance'];
+        $args = array(
+            'lat' => $_POST['lat'],
+            'lng' => $_POST['lng'],
+            'distance' => $_POST['distance'],
+            'numberposts' => -1,
+            'offset' => 0,
+        );
 
-        $data = \NortiaCGPLocator\Geolocator\GeolocatorComponent::get_posts_by_latlng($lat, $lng, $distance);
+        $data = \NortiaCGPLocator\Geolocator\GeolocatorComponent::get_posts_by_latlng($args);
 
         if (empty($data)) {
             $this->print_admin_notice('Aucun résultat.', 'error');
