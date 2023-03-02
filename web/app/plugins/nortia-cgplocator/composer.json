@@ -1,0 +1,33 @@
+{
+  "name": "lepitch/nortia-cgplocator",
+  "description": "Nortia - CGP Locator",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "Vincent Datrier",
+      "email": "vdatrier@lepitch.fr"
+    }
+  ],
+  "require": {
+    "zawntech/wp-admin-options": "dev-master",
+    "shuchkin/simplexlsx": "^1.0",
+    "shuchkin/simplexls": "^0.10.3",
+    "deliciousbrains/wp-queue": "^2"
+  },
+  "autoload": {
+    "psr-4": {
+      "NortiaCGPLocator\\": "src/"
+    }
+  },
+  "extra": {
+    "imposter": {
+      "namespace": "NortiaCGPLocator",
+      "excludes": []
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "typisttech/imposter-plugin": true
+    }
+  }
+}

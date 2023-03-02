@@ -59,6 +59,46 @@
             "center_lng": "",
             "zoom": "",
             "height": ""
+        },
+        {
+            "key": "field_63fe05feb25b2",
+            "label": "Identifiant Unique",
+            "name": "AccountLongId",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63ffccc6a8b71",
+            "label": "Verrouillage",
+            "name": "is_locked",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Ne pas remplacer les données lors de l'import Excel",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -92,5 +132,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676472581
+    "modified": 1677708586
 }
