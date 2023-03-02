@@ -13,7 +13,8 @@
     "shuchkin/simplexlsx": "^1.0",
     "shuchkin/simplexls": "^0.10.3",
     "deliciousbrains/wp-queue": "^2",
-    "monolog/monolog": "^2.9"
+    "monolog/monolog": "^2.9",
+    "psr/log": "^2.0"
   },
   "autoload": {
     "psr-4": {
@@ -21,9 +22,11 @@
     }
   },
   "extra": {
-    "imposter": {
-      "namespace": "NortiaCGPLocator",
-      "excludes": []
+    "mozart": {
+      "dep_namespace": "NortiaCGPLocator\\Dependencies\\",
+      "dep_directory": "/deps/",
+      "classmap_directory": "/deps/",
+      "classmap_prefix": "NortiaCGPLocator_"
     }
   },
   "config": {
