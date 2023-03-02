@@ -12,7 +12,8 @@
     "zawntech/wp-admin-options": "dev-master",
     "shuchkin/simplexlsx": "^1.0",
     "shuchkin/simplexls": "^0.10.3",
-    "deliciousbrains/wp-queue": "^2"
+    "deliciousbrains/wp-queue": "^2",
+    "monolog/monolog": "^2.9"
   },
   "autoload": {
     "psr-4": {

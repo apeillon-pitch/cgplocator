@@ -4,26 +4,54 @@ namespace NortiaCGPLocator\ImportJobQueue;
 
 use WP_Queue\Job;
 use NortiaCGPLocator\Admin\Settings;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Formatter\LineFormatter;
 
 class ImportJob extends Job
 {
 
     public $data;
+    protected $logger;
 
     public function __construct($data)
     {
         $this->data = $data;
+        $dateformat = "H:i:s";
+        $output = wp_date(get_option( 'date_format' )) . " %datetime% - (%level_name%) %message% %context.entry% %context.code%\n";
+        $formatter = new LineFormatter($output, $dateformat, true, true);
+        $this->logger = new Logger('import');
+        $this->logger->setTimezone(wp_timezone());
+        $handler = new StreamHandler(
+            wp_upload_dir()['basedir'] . '/nortia-cgplocator/import.log',
+            Logger::INFO
+        );
+        $handler->setFormatter($formatter);
+        $this->logger->pushHandler(
+            $handler
+        );
+    }
+
+    public function __destruct()
+    {
+        $this->logger->reset();
     }
 
     protected function geoCodeAddress($address)
     {
         $address = urlencode($address);
+        $google_api_key = acf_get_setting('google_api_key');
+        $google_api_url =
+            "https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=$google_api_key";
+        
+        $response = wp_remote_get(esc_url_raw($google_api_url));
 
-        $geocodeJson = file_get_contents(
-            "https://maps.googleapis.com/maps/api/geocode/json?address=$address&key=" . acf_get_setting('google_api_key')
-        );
+        if (is_wp_error($response)) {
+            $this->logger->error($response->get_error_message(), ['code' => $response->get_error_code()]);
+            return false;
+        }
 
-        return json_decode($geocodeJson, true);
+        return json_decode(wp_remote_retrieve_body($response), true);
     }
 
     private function array_recursive_search_key_map($needle, $haystack)
@@ -90,11 +118,11 @@ class ImportJob extends Job
         $geocode = $this->geoCodeAddress($address);
 
         if ($geocode['status'] !== 'OK') {
-            throw new \Exception('Error geocoding address: ' . $address);
+            $this->logger->error('Erreur lors du géocodage : ' . $geocode['status'], ['address' => $address, 'entry' => $this->data[3]]);
         }
 
         if (isset($geocode['results'][0]['geometry']['partial_match'])) {
-            throw new \Exception('Address is not precise enough: ' . $address);
+            $this->logger->error('L\'adresse n\'est pas assez précise.', ['address' => $address, 'entry' => $this->data[3]]);
         }
 
         // Check if the post already exists
@@ -124,20 +152,11 @@ class ImportJob extends Job
                 update_post_meta($existingPost[0]->ID, '_latitude', $geocode['results'][0]['geometry']['location']['lat']);
                 update_post_meta($existingPost[0]->ID, '_longitude', $geocode['results'][0]['geometry']['location']['lng']);
                 // Write import log to file
-                file_put_contents(
-                    wp_upload_dir()['basedir'] . '/nortia-cgplocator/import.log',
-                    // date('Y-m-d H:i:s') . ' - ' . $this->data[3] . ' mis à jour' . PHP_EOL,
-                    '(' . $current_row . '/' . $total_rows . ') ' . date('Y-m-d H:i:s') . ' - ' . $this->data[3] . ' mis à jour' . PHP_EOL,
-                    FILE_APPEND
-                );
+                $this->logger->info('CGP mis à jour : ', ['entry' => $this->data[3]]);
             } else {
                 // Write import log to file
-                file_put_contents(
-                    wp_upload_dir()['basedir'] . '/nortia-cgplocator/import.log',
-                    // date('Y-m-d H:i:s') . ' - ' . $this->data[3] . ' ignoré car verrouillé: ' . get_field('is_locked', $existingPost[0]->ID) . PHP_EOL,
-                    '(' . $current_row . '/' . $total_rows . ') ' . date('Y-m-d H:i:s') . ' - ' . $this->data[3] . ' ignoré car verrouillé' . PHP_EOL,
-                    FILE_APPEND
-                );
+                $this->logger->notice('CGP ignoré car verrouillé : ', ['entry' => $this->data[3]]);
+
             }
         } else {
             // Create new post with the data
@@ -155,21 +174,13 @@ class ImportJob extends Job
             update_post_meta($postId, '_latitude', $geocode['results'][0]['geometry']['location']['lat']);
             update_post_meta($postId, '_longitude', $geocode['results'][0]['geometry']['location']['lng']);
             // Write import log to file
-            file_put_contents(
-                wp_upload_dir()['basedir'] . '/nortia-cgplocator/import.log',
-                // date('Y-m-d H:i:s') . ' - ' . $this->data[3] . ' créé' . PHP_EOL,
-                '(' . $current_row . '/' . $total_rows . ') ' . date('Y-m-d H:i:s') . ' - ' . $this->data[3] . ' créé' . PHP_EOL,
-                FILE_APPEND
-            );
+            $this->logger->info('CGP créé : ', ['entry' => $this->data[3]]);
+
         }
         // If we are at the end of the import, stop importing and output an end notice to the log file
         if ($current_row === $total_rows) {
             $settings->set(['is_importing' => false]);
-            file_put_contents(
-                wp_upload_dir()['basedir'] . '/nortia-cgplocator/import.log',
-                "Import terminé à " . date('Y-m-d H:i:s') . "" . PHP_EOL,
-                FILE_APPEND
-            );
+            $this->logger->info('Import terminé.');
         }
     }
 }

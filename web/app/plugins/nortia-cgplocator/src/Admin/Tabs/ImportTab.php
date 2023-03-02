@@ -150,17 +150,17 @@ class ImportTab extends AdminSettingsPageTabAbstract
 
         $settings->set(['total_rows' => count($data) - 1, 'current_row' => 0]);
 
-        // Create log file.
+        // Clear log file on new import.
         if (@filesize(wp_upload_dir()['basedir'] . '/nortia-cgplocator/import.log') !== 0) {
             @unlink(wp_upload_dir()['basedir'] . '/nortia-cgplocator/import.log');
         }
-        file_put_contents(wp_upload_dir()['basedir'] . '/nortia-cgplocator/import.log', "Import démarré à " . date('Y-m-d H:i:s') . "" . PHP_EOL);
+        file_put_contents(wp_upload_dir()['basedir'] . '/nortia-cgplocator/import.log', "***Import démarré à " . date('Y-m-d H:i:s') . "***" . PHP_EOL);
 
 
         foreach ($data as $row) {
             wp_queue()->push(new \NortiaCGPLocator\ImportJobQueue\ImportJob($row));
         }
 
-        $this->print_admin_notice('Import en cours de ' . count($data) - 1 . ' entrées...', 'success');
+        $this->print_admin_notice('Import en cours de ' . count($data) - 1 . ' entrées...', 'info');
     }
 }
