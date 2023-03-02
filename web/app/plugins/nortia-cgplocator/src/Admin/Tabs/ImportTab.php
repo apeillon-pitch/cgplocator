@@ -25,7 +25,7 @@ class ImportTab extends AdminSettingsPageTabAbstract
         // Calculate progress percentage.
         $total_rows = $settings->all()['total_rows'];
         $current_row = $settings->all()['current_row'];
-        $progress = round($current_row / $total_rows * 100, 0);
+        $progress = @round($current_row / $total_rows * 100, 0) ?: 0;
 
 ?>
         <style>
