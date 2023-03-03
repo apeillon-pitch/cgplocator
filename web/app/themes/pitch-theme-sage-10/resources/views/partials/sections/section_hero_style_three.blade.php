@@ -1,3 +1,5 @@
+<script src="https://maps.googleapis.com/maps/api/js?key={{ acf_get_setting( 'google_api_key' )}}&libraries=places">
+</script>
 <div id="section-{{ $row }}" class="section hero style-one bg-pastel {{ $section['padding_group']['padding_bottom']}}">
   <div class="wrapper-content">
     <div class="container-lg h-100">
@@ -16,16 +18,22 @@
             <div class="row mt-2">
               <div class="col-11 col-lg-10">
                 <div class="d-flex flex-column">
-                  <form id="cgp-locator" class="d-flex flex-row justify-content-between g-0 mb-4" action="">
-                    <div class="d-flex flex-grow-1">
-                      <input type="text" class="form-control h-100" placeholder="Adresse, Ville, Code postal" id="locationField">
+                  <form id="cgp-locator" action="">
+                    <div class="d-flex flex-row justify-content-between g-0 mb-4">
+                      <div class="d-flex flex-grow-1">
+                        <input type="text" class="form-control h-100" placeholder="Adresse, Ville, Code postal"
+                          id="locationField">
+                        <input type="hidden" id="lat" name="lat">
+                        <input type="hidden" id="lng" name="lng">
+                      </div>
+                      <div class="d-flex">
+                        <button type="submit" class="btn btn-primary"><i class="fa-regular fa-magnifying-glass"></i>
+                        </button>
+                      </div>
                     </div>
-                    <div class="d-flex">
-                      <button type="submit" class="btn btn-primary"><i class="fa-regular fa-magnifying-glass"></i></button>
-                    </div>
+                    <button class="btn btn-primary" id="geolocation">Géolocalisez-moi <i class="fa-regular fa-location-crosshairs"></i>
+                    </button>
                   </form>
-                  <button class="btn btn-primary" id="geolocation">Géolocalisez-moi <i class="fa-regular fa-location-crosshairs"></i>
-                  </button>
                 </div>
               </div>
             </div>

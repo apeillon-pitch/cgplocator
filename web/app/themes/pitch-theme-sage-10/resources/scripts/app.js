@@ -36,6 +36,7 @@ const main = async (err) => {
     getMobileSubmenu();
     getStickyMenu();
     getGeoLocation();
+    gMapAutocomplete();
 
     jQuery('input#toggle-a').on('click', function () {
         setTimeout(function () {
@@ -487,9 +488,12 @@ const main = async (err) => {
 
     function getGeoLocation() {
         let geoLocationBtn = document.querySelector('button#geolocation');
-        let locationField = document.querySelector('input#locationField');
+        let latField = document.querySelector('input#lat');
+        let lngField = document.querySelector('input#lng');
+        let geoForm = document.querySelector('form#cgp-locator');
         if (geoLocationBtn) {
-            geoLocationBtn.addEventListener('click', function () {
+            geoLocationBtn.addEventListener('click', function (e) {
+                e.preventDefault();
                 if ('geolocation' in navigator) {
                     navigator.geolocation.getCurrentPosition(showPosition);
                 } else {
@@ -500,16 +504,33 @@ const main = async (err) => {
             });
         }
         const showPosition = (position) => {
-            let lat = position.coords.latitude;
-            let lng = position.coords.longitude;
-            let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyCcO_gEq7lWm1Sdu12YB2u2v3Mr-qKiz44`;
-            fetch(url)
-                .then((response) => response.json())
-                .then((data) => {
-                    let address = data.results[0].formatted_address;
-                    locationField.value = address;
-                });
+            latField.value = position.coords.latitude;
+            lngField.value = position.coords.longitude;
+            geoForm.submit();
         };
+    }
+
+    function gMapAutocomplete() {
+        let locationField = document.querySelector('input#locationField');
+        if (locationField) {
+            // eslint-disable-next-line no-undef
+            let autocomplete = new google.maps.places.Autocomplete(
+                locationField,
+                {
+                    types: ['geocode'],
+                    componentRestrictions: {country: ['fr', 'nc', 'mq', 'pf']},
+                },
+            );
+            autocomplete.setFields(['address_component', 'geometry']);
+            autocomplete.addListener('place_changed', function () {
+                let place = autocomplete.getPlace();
+                // Fill out form fields
+                let latField = document.querySelector('input#lat');
+                let lngField = document.querySelector('input#lng');
+                latField.value = place.geometry.location.lat();
+                lngField.value = place.geometry.location.lng();
+            });
+        }
     }
 };
 
