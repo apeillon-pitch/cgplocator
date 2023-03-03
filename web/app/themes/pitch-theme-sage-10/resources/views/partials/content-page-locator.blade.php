@@ -21,5 +21,9 @@
       </div>
     </div>
   </div>
-  <div class="col-12 col-lg-6"></div>
+  <div class="col-12 col-lg-6">
+
+    //MAP
+
+  </div>
 </div>
