@@ -8,9 +8,9 @@
         <h1 class="section-title">Localiser un conseiller <br> en gestion de patrimoine :</h1>
         <form id="cgp-locator" class="d-flex flex-row justify-content-between g-0 mb-4" method="post">
           <div class="d-flex flex-grow-1">
-            <input type="text" class="form-control h-100" placeholder="Adresse, Ville, Code postal" id="locationField">
-            <input type="hidden" id="lat" name="lat">
-            <input type="hidden" id="lng" name="lng">
+            <input type="text" class="form-control h-100" placeholder="Adresse, Ville, Code postal" id="locationField" name="address" value="{!! $_POST['address'] ?? "" !!}">
+            <input type="hidden" id="lat" name="lat" value="{!! $_POST['lat'] ?? 0 !!}">
+            <input type="hidden" id="lng" name="lng" value="{!! $_POST['lng'] ?? 0 !!}">
           </div>
           <div class="d-flex">
             <button type="submit" class="btn btn-primary"><i class="fa-regular fa-magnifying-glass"></i></button>
