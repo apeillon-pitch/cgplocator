@@ -34,15 +34,7 @@ class CgpMap extends Composer
 
     public function getCgp()
     {
-        $lat = 0.0;
-        $long = 0.0;
-        $distance = 20; // TODO: Change default distance
-
-        if (isset($_POST["lat"])) { $lat = $_POST["lat"]; }
-        if (isset($_POST["lng"])) { $long = $_POST["lng"]; }
-        if (isset($_POST["distance"])) { $distance = $_POST["distance"]; }
-
-        if (empty($lat) OR empty($long)) {
+        if (!isset($_POST['lat']) OR !isset($_POST['lng'])) {
             return get_posts(array(
                 'post_type' => 'cgp',
                 'posts_per_page' => 4,
@@ -51,9 +43,9 @@ class CgpMap extends Composer
         }
 
         return (new GeolocatorComponent())->get_posts_by_latlng(array(
-            'lat' => (float) $lat,
-            'lng' => (float) $long,
-            'distance' => (int) $distance,
+            'lat' => (float) $_POST["lat"],
+            'lng' => (float) $_POST["lng"],
+            'distance' => $_POST["distance"] ?? -1,
             'numberposts' => 4,
             'offset' => 0,
             ));
