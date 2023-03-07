@@ -404,7 +404,7 @@ const main = async (err) => {
                 event.preventDefault();
                 var that = jQuery(this);
                 var parent = that.text();
-                var data = jQuery.trim(parent);
+                var data = parent.trim();
                 var ajaxurl = '/wp/wp-admin/admin-ajax.php';
                 jQuery.ajax({
                     url: ajaxurl,
