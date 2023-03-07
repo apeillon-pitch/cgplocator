@@ -36,25 +36,27 @@ class CgpMap extends Composer
     {
         $lat = 0.0;
         $long = 0.0;
-        $distance = 0;
+        $distance = 1000;
 
         if (isset($_POST["lat"])) { $lat = $_POST["lat"]; }
         if (isset($_POST["lng"])) { $long = $_POST["lng"]; }
         if (isset($_POST["distance"])) { $distance = $_POST["distance"]; }
 
-        if (empty($lat) OR empty($long) OR empty($distance)) {
-            $posts = get_posts(array(
+        if (empty($lat) OR empty($long)) {
+            return get_posts(array(
                 'post_type' => 'cgp',
                 'posts_per_page' => 4,
                 'post_status' => 'publish',
             ));
-
-            return $posts;
         }
 
-        $posts = GeolocatorComponent::get_posts_by_latlng($lat, $long, $distance, 10, 0);
-
-        return $posts;
+        return (new GeolocatorComponent())->get_posts_by_latlng(array(
+            'lat' => (float) $lat,
+            'lng' => (float) $long,
+            'distance' => (int) $distance,
+            'numberposts' => 10,
+            'offset' => 0,
+            ));
     }
 
     public function jsonList() {

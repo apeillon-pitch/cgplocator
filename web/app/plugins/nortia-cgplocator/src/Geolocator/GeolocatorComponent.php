@@ -8,14 +8,26 @@ class GeolocatorComponent
     {
     }
 
-    public static function get_posts_by_latlng($args = [
+    protected function get_post_ids($nearbyLocations)
+    {
+        $ids = array();
+        foreach ($nearbyLocations as $key => $location) {
+            $ids[] = $location->ID;
+        }
+        return $ids;
+    }
+
+    public function get_posts_by_latlng($args = [
         'lat' => 0.0,
         'lng' => 0.0,
         'distance' => 0.0,
         'numberposts' => -1,
+        'posts_per_page' => -1,
         'offset' => 0,
     ])
     {
+        $amtposts = $args['numberposts'] > 0 ? $args['numberposts'] : $args['posts_per_page'];
+
         global $wpdb;
 
         $earth_radius = 3959;
@@ -49,28 +61,29 @@ class GeolocatorComponent
         );
 
         $nearbyLocations = $wpdb->get_results($sql);
-        
-        $results = false;
 
-        function get_post_ids($nearbyLocations)
-        {
-            $ids = array();
-            foreach ($nearbyLocations as $key => $location) {
-                $ids[] = $location->ID;
-            }
-            return $ids;
-        }
+        $results = false;
 
         if (!empty($nearbyLocations)) {
             $results = get_posts(array(
                 'post_type' => 'cgp',
-                'include' => get_post_ids($nearbyLocations),
+                'include' => $this->get_post_ids($nearbyLocations),
             ));
 
             foreach ($results as $key => $result) {
                 $ids = array_column($nearbyLocations, 'ID');
                 $result->distance = round($nearbyLocations[array_search($key, $ids)]->distance, 2);
                 $result->meta = get_fields($result->ID);
+            }
+
+            usort($results, function ($a, $b) {
+                return $a->distance <=> $b->distance;
+            });
+
+            if($amtposts > 0) {
+                $results = array_slice($results, $args['offset'], $amtposts);
+            } else {
+                $results = array_slice($results, $amtposts);
             }
         }
 

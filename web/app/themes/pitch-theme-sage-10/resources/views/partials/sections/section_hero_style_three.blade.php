@@ -18,7 +18,7 @@
             <div class="row mt-2">
               <div class="col-11 col-lg-10">
                 <div class="d-flex flex-column">
-                  <form id="cgp-locator" action="">
+                  <form id="cgp-locator" action="/cgp-locator" method="post">
                     <div class="d-flex flex-row justify-content-between g-0 mb-4">
                       <div class="d-flex flex-grow-1">
                         <input type="text" class="form-control h-100" placeholder="Adresse, Ville, Code postal"
