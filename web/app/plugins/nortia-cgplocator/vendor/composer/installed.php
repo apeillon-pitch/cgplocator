@@ -5,7 +5,7 @@
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '75bf335e824f09973dc57d0ffd408df73ee00f5d',
+        'reference' => '1d0a435bcaaa5bf0963173fdfdb21ae96b954673',
         'name' => 'lepitch/nortia-cgplocator',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '75bf335e824f09973dc57d0ffd408df73ee00f5d',
+            'reference' => '1d0a435bcaaa5bf0963173fdfdb21ae96b954673',
             'dev_requirement' => false,
         ),
         'monolog/monolog' => array(
