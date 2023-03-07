@@ -87,7 +87,7 @@ class TestGeolocTab extends AdminSettingsPageTabAbstract
             'offset' => 0,
         );
 
-        $data = \NortiaCGPLocator\Geolocator\GeolocatorComponent::get_posts_by_latlng($args);
+        $data = (new \NortiaCGPLocator\Geolocator\GeolocatorComponent)->get_posts_by_latlng($args);
 
         if (empty($data)) {
             $this->print_admin_notice('Aucun résultat.', 'error');
