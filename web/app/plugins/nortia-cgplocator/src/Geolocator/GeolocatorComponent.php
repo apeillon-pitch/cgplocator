@@ -22,11 +22,9 @@ class GeolocatorComponent
         'lng' => 0.0,
         'distance' => 0.0,
         'numberposts' => -1,
-        'posts_per_page' => -1,
         'offset' => 0,
     ])
     {
-        $amtposts = $args['numberposts'] > 0 ? $args['numberposts'] : $args['posts_per_page'];
 
         global $wpdb;
 
@@ -65,25 +63,18 @@ class GeolocatorComponent
         $results = false;
 
         if (!empty($nearbyLocations)) {
-            $results = get_posts(array(
-                'post_type' => 'cgp',
-                'include' => $this->get_post_ids($nearbyLocations),
-            ));
+            $results = array();
 
-            foreach ($results as $key => $result) {
-                $ids = array_column($nearbyLocations, 'ID');
-                $result->distance = round($nearbyLocations[array_search($key, $ids)]->distance, 2);
-                $result->meta = get_fields($result->ID);
+            if($args['numberposts'] > 0) {
+                $postsToFetch = array_slice($nearbyLocations, $args['offset'], $args['numberposts']);
+            } else {
+                $postsToFetch = $nearbyLocations;
             }
 
-            usort($results, function ($a, $b) {
-                return $a->distance <=> $b->distance;
-            });
-
-            if($amtposts > 0) {
-                $results = array_slice($results, $args['offset'], $amtposts);
-            } else {
-                $results = array_slice($results, $amtposts);
+            foreach ($postsToFetch as $key => $post) {
+                $results[] = get_post($post->ID);
+                // Add distance to post object
+                $results[$key]->distance = $post->distance;
             }
         }
 

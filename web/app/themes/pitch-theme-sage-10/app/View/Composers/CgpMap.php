@@ -36,7 +36,7 @@ class CgpMap extends Composer
     {
         $lat = 0.0;
         $long = 0.0;
-        $distance = 1000;
+        $distance = 20; // TODO: Change default distance
 
         if (isset($_POST["lat"])) { $lat = $_POST["lat"]; }
         if (isset($_POST["lng"])) { $long = $_POST["lng"]; }
@@ -54,7 +54,7 @@ class CgpMap extends Composer
             'lat' => (float) $lat,
             'lng' => (float) $long,
             'distance' => (int) $distance,
-            'numberposts' => 10,
+            'numberposts' => 4,
             'offset' => 0,
             ));
     }
@@ -72,6 +72,7 @@ class CgpMap extends Composer
                 'address' => get_field('address', $post->ID, true)['address'],
                 'email' => get_post_meta($post->ID, 'cgp_email', true),
                 'link' => get_permalink($post->ID),
+                'distance' => $post->distance,
             );
         }
 
