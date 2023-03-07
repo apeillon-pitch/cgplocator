@@ -28,6 +28,7 @@ class CgpMap extends Composer
 
         return [
             'posts' => $this->getCgp(),
+            'json' => $this->jsonList(),
         ];
     }
 
@@ -54,5 +55,24 @@ class CgpMap extends Composer
         $posts = GeolocatorComponent::get_posts_by_latlng($lat, $long, $distance, 10, 0);
 
         return $posts;
+    }
+
+    public function jsonList() {
+        $posts = $this->getCgp();
+
+        $json = array();
+
+        foreach ($posts as $post) {
+            $json[] = array(
+                'title' => $post->post_title,
+                'lat' => get_post_meta($post->ID, '_latitude', true),
+                'lng' => get_post_meta($post->ID, '_longitude', true),
+                'address' => get_field('address', $post->ID, true)['address'],
+                'email' => get_post_meta($post->ID, 'cgp_email', true),
+                'link' => get_permalink($post->ID),
+            );
+        }
+
+        return $json;
     }
 }
