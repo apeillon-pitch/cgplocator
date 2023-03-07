@@ -33,13 +33,13 @@ class CgpMap extends Composer
 
     public function getCgp()
     {
-        $lat = "";
-        $long = "";
-        $distance = "";
+        $lat = 0.0;
+        $long = 0.0;
+        $distance = 0;
 
-        if (isset($_GET["lat"])) { $lat = $_GET["lat"]; }
-        if (isset($_GET["long"])) { $long = $_GET["long"]; }
-        if (isset($_GET["distance"])) { $distance = $_GET["distance"]; }
+        if (isset($_POST["lat"])) { $lat = $_POST["lat"]; }
+        if (isset($_POST["lng"])) { $long = $_POST["lng"]; }
+        if (isset($_POST["distance"])) { $distance = $_POST["distance"]; }
 
         if (empty($lat) OR empty($long) OR empty($distance)) {
             $posts = get_posts(array(
@@ -51,8 +51,7 @@ class CgpMap extends Composer
             return $posts;
         }
 
-        $cgp = new GeolocatorComponent();
-        $posts = $cgp->get_posts_by_latlng($lat, $long, $distance, 10, 0);
+        $posts = GeolocatorComponent::get_posts_by_latlng($lat, $long, $distance, 10, 0);
 
         return $posts;
     }
