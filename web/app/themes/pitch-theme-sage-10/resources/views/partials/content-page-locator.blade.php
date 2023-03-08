@@ -1,6 +1,7 @@
 <script>
   window.cgps = @json($json);
 </script>
+@php global $wp_query; @endphp
 <div class="row gx-0">
   <div class="col-12 col-lg-4 position-relative">
     <div id="cgp-sidebar" class="d-flex flex-column">
@@ -25,7 +26,7 @@
         @include('partials.template-parts.cards.cgp.card-cgp')
         @endforeach
       </div>
-      <button id="search" class="btn btn-animated mx-auto mt-4" id="load-more">Afficher plus de résultats</button>
+      <button id="loadMore" class="btn btn-animated mx-auto mt-4" data-url="{{ admin_url( 'admin-ajax.php' ) }}" data-page="1" id="load-more">Afficher plus de résultats</button>
     </div>
   </div>
   <div class="col-12 col-lg-8">
