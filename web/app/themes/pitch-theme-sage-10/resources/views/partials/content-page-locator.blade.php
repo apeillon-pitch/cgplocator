@@ -26,7 +26,7 @@
         @include('partials.template-parts.cards.cgp.card-cgp')
         @endforeach
       </div>
-      <button id="loadMore" class="btn btn-animated mx-auto mt-4" data-lat="{{floatval($_POST['lat']) ?? 0}}" data-lng="{{floatval($_POST['lng']) ?? 0}}" data-url="{{ admin_url( 'admin-ajax.php' ) }}" data-page="1" id="load-more">Afficher plus de résultats</button>
+      <button id="loadMore" class="btn btn-animated mx-auto mt-4" data-lat="{{@floatval($_POST['lat']) ?? 0}}" data-lng="{{@floatval($_POST['lng']) ?? 0}}" data-url="{{ admin_url( 'admin-ajax.php' ) }}" data-page="1" id="load-more">Afficher plus de résultats</button>
     </div>
   </div>
   <div class="col-12 col-lg-8">
