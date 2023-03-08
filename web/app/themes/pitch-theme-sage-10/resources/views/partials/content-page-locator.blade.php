@@ -29,7 +29,7 @@
     </div>
   </div>
   <div class="col-12 col-lg-8">
-    <div class="acf-map" data-zoom="14" style="height: calc(100vh - 114px)">
+    <div class="acf-map" data-zoom="14" style="height: calc(100vh - 130px)">
     </div>
   </div>
 </div>
