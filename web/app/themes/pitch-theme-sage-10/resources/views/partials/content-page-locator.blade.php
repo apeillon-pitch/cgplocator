@@ -1,6 +1,8 @@
+@if ($_POST['lat'] ?? false)
 <script>
   window.cgps = @json($json);
 </script>
+@endif
 @php global $wp_query; @endphp
 <div class="row gx-0">
   <div class="col-12 col-lg-4 position-relative">
@@ -35,7 +37,7 @@
   </div>
 </div>
 <script type="text/javascript">
-    function initMap() {
+    async function initMap() {
       var $el = jQuery('.acf-map');
 
       var mapArgs = {
@@ -45,14 +47,13 @@
       var map = new google.maps.Map($el[0], mapArgs);
 
       map.markers = [];
-      window.cgps.map((cgp) => {
+      window.cgps && await window.cgps.map((cgp) => {
         var marker = new google.maps.Marker({
           position: {lat: parseFloat(cgp.lat), lng: parseFloat(cgp.lng)},
           map: map
         });
         map.markers.push(marker);
       });
-
       centerMap(map);
     }
 
@@ -82,6 +83,11 @@
       if (map.markers.length == 1) {
         map.setCenter(bounds.getCenter());
 
+        // Case: No marker.
+      } else if (map.markers.length == 0) {
+        //Center on France
+        map.setCenter({lat: 46.47638, lng: 2.213749});
+        map.setZoom(6);
         // Case: Multiple markers.
       } else {
         map.fitBounds(bounds);
