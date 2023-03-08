@@ -1,4 +1,12 @@
 .page-template-template-cgp-map {
+  #cgp-sidebar {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
   #cgp-form {
     padding: 2.5rem;
     background-color: #f4f4f4;
