@@ -1,8 +1,15 @@
 <div class="cgp-card d-flex flex-column">
   @php
-    $address = get_field('address', $post->ID);
+    if(is_array($post)) {
+      $id = $post['id'];
+      $title = $post['title'];
+    } else {
+      $id = $post->ID;
+      $title = $post->post_title;
+    }
+    $address = get_field('address', $id);
   @endphp
-  <h2>{!! $post->post_title !!}</h2>
+  <h2>{!! $title !!}</h2>
   @if ($address)
     <p>
       @if ($address['name'])
@@ -12,9 +19,9 @@
     </p>
   @endif
   <div class="d-flex flex-row justify-content-between">
-    <a href="{!! get_the_permalink($post->ID) !!}" aria-label="Contacter le conseiller" class="btn btn-simple">
+    <a href="{!! get_permalink($id) !!}" aria-label="Contacter le conseiller" class="btn btn-simple">
       Contacter le conseiller
     </a>
-    <a href="{!! get_the_permalink($post->ID) !!}"><i class="fa-solid fa-envelope"></i></a>
+    <a href="{!! get_permalink($id) !!}"><i class="fa-solid fa-envelope"></i></a>
   </div>
 </div>

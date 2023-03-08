@@ -28,7 +28,7 @@ class CgpMap extends Composer
 
         return [
             'posts' => $this->getCgp(),
-            'json' => $this->jsonList(),
+            'json' => $this->jsonList(null),
         ];
     }
 
@@ -51,8 +51,8 @@ class CgpMap extends Composer
             ));
     }
 
-    public function jsonList() {
-        $posts = $this->getCgp();
+    public function jsonList($posts) {
+        $posts = $posts ?? $this->getCgp();
 
         $json = array();
 

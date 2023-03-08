@@ -46,11 +46,15 @@ const main = async (err) => {
       var page = that.data('page');
       var newPage = page + 1;
       var ajaxurl = that.data('url');
+      var lat = that.data('lat');
+      var lng = that.data('lng');
       jQuery.ajax({
         url: ajaxurl,
         type: 'POST',
         data: {
           page: page,
+          lat: lat != 0 ? lat : '',
+          lng: lng != 0 ? lng : '',
           action: 'ajax_script_load_more_cgp',
         },
         error: function (response) {

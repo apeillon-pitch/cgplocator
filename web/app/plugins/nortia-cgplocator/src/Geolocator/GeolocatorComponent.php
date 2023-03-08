@@ -17,6 +17,12 @@ class GeolocatorComponent
         return $ids;
     }
 
+    /**
+     * Get posts by latitude and longitude
+     *
+     * @param array $args
+     * @return WP_Post[]|false
+     */
     public function get_posts_by_latlng($args = [
         'lat' => 0.0,
         'lng' => 0.0,
