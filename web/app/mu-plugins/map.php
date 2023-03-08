@@ -26,7 +26,7 @@ function ajax_script_load_more_cgp($args)
     while ($query->have_posts()):
       $query->the_post();
       $article = getCgpData();
-      include(locate_template('resources/views/partials/template-parts/cards/cgp/card-cgp.php', '', '', ['article' => $article]));
+      print view('partials.template-parts.cards.cgp.card-cgp', $article)->render();
     endwhile;
   else:
     echo 0;
