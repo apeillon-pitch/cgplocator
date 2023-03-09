@@ -85,11 +85,13 @@ class App extends Composer
         $blog = get_field('blog_group', 'options');
         $modal_login = get_field('modal_login_group', 'options');
         $other_option = get_field('option_group', 'options');
+        $cgp_option =  get_field('cgp_group', 'options');
         $modal_site_selector_group = get_field('modal_site_selector_group', 'options');
         $data = array(
             'blog' => $blog,
             'modal_login' => $modal_login,
             'other' => $other_option,
+            'cgp' => $cgp_option,
             'modal_site_selector' => $modal_site_selector_group,
         );
         return $data;

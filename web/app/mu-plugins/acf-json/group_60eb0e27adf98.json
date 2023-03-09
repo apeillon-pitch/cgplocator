@@ -1248,6 +1248,32 @@
             "layout": "block",
             "sub_fields": [
                 {
+                    "key": "field_6409af8745236",
+                    "label": "Page de la Map CGP",
+                    "name": "cgp_page",
+                    "aria-label": "",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "return_format": "object",
+                    "min": 1,
+                    "max": 1,
+                    "elements": ""
+                },
+                {
                     "key": "field_63edede6076ff",
                     "label": "Titre du call to action",
                     "name": "cta_title",
@@ -1363,5 +1389,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1676537342
+    "modified": 1678356458
 }

@@ -37,7 +37,7 @@
     <meta name="msapplication-TileImage"
           content="<?php echo get_template_directory_uri(); ?>/assets/images/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <script>
+    <!--<script>
       window.axeptioSettings = {
         clientId: "62bc29bbc75a1adc36e888b4",
       };
@@ -47,7 +47,7 @@
         e.async = true; e.src = "//static.axept.io/sdk.js";
         t.parentNode.insertBefore(e, t);
       })(document, "script");
-    </script>
+    </script>-->
     <!-- Matomo -->
     <script>
       var _paq = window._paq = window._paq || [];

@@ -6,7 +6,7 @@
 @php global $wp_query; @endphp
 <div class="row gx-0">
   <div class="col-12 col-lg-4 position-relative">
-    <div id="cgp-sidebar" class="d-flex flex-column">
+    <div id="cgp-sidebar" class="d-flex flex-column pb-5">
       <div id="cgp-form" class="d-flex flex-column">
         <h1 class="section-title">Localiser un conseiller <br> en gestion de patrimoine :</h1>
         <form id="cgp-locator" class="d-flex flex-row justify-content-between g-0 mb-4" method="post">
@@ -32,7 +32,7 @@
     </div>
   </div>
   <div class="col-12 col-lg-8">
-    <div class="acf-map" data-zoom="14" style="height: calc(100vh - 130px)">
+    <div class="acf-map" data-zoom="14" style="height: calc(100vh - 114px)">
     </div>
   </div>
 </div>
