@@ -93,6 +93,8 @@
         map.fitBounds(bounds);
       }
     }
+    window.initMap = initMap;
+    window.centerMap = centerMap;
 </script>
 <script
   src="https://maps.googleapis.com/maps/api/js?key={{ acf_get_setting( 'google_api_key' )}}&libraries=places&callback=initMap">
