@@ -50,7 +50,7 @@ function ajax_script_load_more_cgp($args)
     );
     print view('partials.template-parts.cards.cgp.card-cgp', ['post' => $post])->render();
   }
-  if (!isset($_POST['lat']) or !isset($_POST['lng'])) {
+  if (isset($_POST['lat']) or isset($_POST['lng'])) {
     print view('partials.template-parts.cards.cgp.markers', ['posts' => (new \App\View\Composers\CgpMap)->jsonList($query)])->render();
   }
   if ($ajax) die();
