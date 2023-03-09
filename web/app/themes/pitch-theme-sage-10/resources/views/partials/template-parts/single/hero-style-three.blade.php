@@ -32,7 +32,7 @@
 </div>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcO_gEq7lWm1Sdu12YB2u2v3Mr-qKiz44"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ acf_get_setting( 'google_api_key' )}}"></script>
 <script type="text/javascript">
   (function ($) {
 
