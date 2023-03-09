@@ -1,6 +1,6 @@
-<script src="https://maps.googleapis.com/maps/api/js?key={{ acf_get_setting( 'google_api_key' )}}&libraries=places">
-</script>
 <div id="section-{{ $row }}" class="section hero style-one bg-pastel {{ $section['padding_group']['padding_bottom']}}">
+  <script src="https://maps.googleapis.com/maps/api/js?key={{ acf_get_setting( 'google_api_key' )}}&libraries=places">
+  </script>
   <div class="wrapper-content">
     <div class="container-lg h-100">
       <div class="row justify-content-center justify-content-lg-start gx-0 h-100 align-items-center">
