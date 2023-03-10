@@ -5,7 +5,7 @@
 @endif
 @php global $wp_query; @endphp
 <div class="row gx-0">
-  <div class="col-12 col-lg-4 position-relative">
+  <div class="col-12 col-sm-6 col-md-5 col-xl-4 position-relative">
     <div id="cgp-sidebar" class="d-flex flex-column pb-5">
       <div id="cgp-form" class="d-flex flex-column">
         <h1 class="section-title">Localiser un conseiller <br> en gestion de patrimoine :</h1>
@@ -31,7 +31,7 @@
       <button id="loadMore" class="btn btn-animated mx-auto mt-4" data-lat="{{@floatval($_POST['lat']) ?? 0}}" data-lng="{{@floatval($_POST['lng']) ?? 0}}" data-url="{{ admin_url( 'admin-ajax.php' ) }}" data-page="1" id="load-more">Afficher plus de résultats</button>
     </div>
   </div>
-  <div class="col-12 col-lg-8">
+  <div class="d-none d-sm-block col-sm-6 col-md-7 col-xl-8">
     <div class="acf-map" data-zoom="14" style="height: calc(100vh - 114px)">
     </div>
   </div>
