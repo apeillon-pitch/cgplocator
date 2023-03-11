@@ -65,6 +65,7 @@ class CgpMap extends Composer
                 'email' => get_post_meta($post->ID, 'cgp_email', true),
                 'link' => get_permalink($post->ID),
                 'distance' => $post->distance,
+                'tooltip' => "<div class=\"nortia-tooltip\">\n" . view('partials.template-parts.cards.cgp.card-cgp', array('post' => $post))->render() . "\n</div>",
             );
         }
 

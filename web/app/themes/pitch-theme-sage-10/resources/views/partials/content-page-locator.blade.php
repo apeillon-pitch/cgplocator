@@ -53,6 +53,12 @@
           map: map
         });
         map.markers.push(marker);
+        var infowindow = new google.maps.InfoWindow({
+            content: cgp.tooltip
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open( map, marker );
+        });
       });
       centerMap(map);
     }
