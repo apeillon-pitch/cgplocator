@@ -86,7 +86,6 @@ const main = async (err) => {
       keyboard: false,
     });
     if (selection === '' || selection === null) {
-      console.log(myModal);
       myModal.show();
       setCookie('site_selector', 1);
     }
@@ -215,16 +214,14 @@ const main = async (err) => {
 
   function setCookie(name, value) {
     var date = new Date();
-    date.setTime(date.getTime() + 60 * 60 * 1000);
+    date.setTime(date.getTime() + 6000 * 6000 * 1000);
     var expires = '; expires=' + date.toGMTString();
 
     if (value.length === 0) {
       document.cookie =
-        name +
-        '=' +
-        JSON.stringify(value) +
-        ';expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
+        name + '=' + JSON.stringify(value) + ';expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
     } else {
+      console.log(expires);
       document.cookie =
         name + '=' + JSON.stringify(value) + expires + '; path=/';
     }
