@@ -50,7 +50,11 @@
       window.cgps && await window.cgps.map((cgp) => {
         var marker = new google.maps.Marker({
           position: {lat: parseFloat(cgp.lat), lng: parseFloat(cgp.lng)},
-          map: map
+          map: map,
+          icon: {
+            url: "@asset('images/map-pin.svg')",
+            scaledSize: new google.maps.Size(48, 48),
+          }
         });
         map.markers.push(marker);
         var infowindow = new google.maps.InfoWindow({
