@@ -6,6 +6,47 @@
   .acf-map {
     position: sticky !important;
     top: 114px;
+
+    .gm-style-iw-a {
+      .gm-style-iw {
+        width: 420px;
+        padding: 2rem !important;
+
+        .gm-style-iw-d {
+          overflow: inherit !important;
+          padding: 0;
+        }
+
+        button[aria-label="Fermer"] {
+          top: 10px !important;
+          right: 25px !important;
+
+          span {
+            opacity: 1;
+            width: 30px !important;
+            height: 30px !important;
+            margin: 0 !important;
+            background-color: $orange;
+          }
+        }
+
+        .nortia-tooltip {
+          .cgp-card {
+            width: 420px;
+            max-width: 100%;
+            padding: 0;
+            border: 0;
+
+            p {
+              font-family: $nexa-book;
+              font-size: 1rem;
+              line-height: 1.3;
+              color: $darkGrey;
+            }
+          }
+        }
+      }
+    }
   }
 
   .nav-is-stuck .acf-map {
