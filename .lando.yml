@@ -17,3 +17,15 @@ services:
       user: nortia
       password: nortia
       database: nortia
+  nodejs:
+    type: node:16
+    globals:
+      gulp-cli: latest
+      yarn: latest
+tooling:
+  yarn:
+    service: nodejs
+  npm:
+    service: nodejs
+  node:
+    service: nodejs
