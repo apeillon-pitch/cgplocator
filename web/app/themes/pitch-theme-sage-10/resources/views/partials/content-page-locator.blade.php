@@ -47,6 +47,8 @@
       var map = new google.maps.Map($el[0], mapArgs);
 
       map.markers = [];
+      const infoWindow = new google.maps.InfoWindow();
+
       window.cgps && await window.cgps.map((cgp) => {
         var marker = new google.maps.Marker({
           position: {lat: parseFloat(cgp.lat), lng: parseFloat(cgp.lng)},
@@ -56,14 +58,20 @@
             scaledSize: new google.maps.Size(48, 48),
           }
         });
+
         map.markers.push(marker);
-        var infowindow = new google.maps.InfoWindow({
-            content: cgp.tooltip
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open( map, marker );
-        });
+
+        marker.addListener('click', () => {
+          infoWindow.close();
+          infoWindow.setContent(cgp.tooltip);
+          infoWindow.open(map, marker);
+        })
       });
+
+      map.addListener('click', () => {
+        infoWindow.close();
+      });
+
       centerMap(map);
     }
 
