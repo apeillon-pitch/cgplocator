@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://kit.fontawesome.com/0b51096d56.js" crossorigin="anonymous"></script>
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=6217dcea7f089d001d3ec97d&product=sop' async='async'></script>
-   
     <!--<script>
       window.axeptioSettings = {
         clientId: "62bc29bbc75a1adc36e888b4",
