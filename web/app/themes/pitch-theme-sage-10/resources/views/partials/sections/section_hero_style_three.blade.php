@@ -31,7 +31,8 @@
                         </button>
                       </div>
                     </div>
-                    <button class="btn btn-primary" id="geolocation">Géolocalisez-moi <i class="fa-regular fa-location-crosshairs"></i>
+                    <button class="d-flex flex-row align-items-center btn btn-primary w-100 justify-content-center" id="geolocation">
+                      <span class="me-2">Géolocalisez-moi</span> <i class="fa-regular fa-location-crosshairs"></i>
                     </button>
                   </form>
                 </div>
