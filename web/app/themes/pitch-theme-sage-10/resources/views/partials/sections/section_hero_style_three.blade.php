@@ -7,7 +7,7 @@
         <div class="col-12 d-lg-none order-1">
           <div class="bg-image mobile" style="background-image: url({{ $section['image']['url'] }})"></div>
         </div>
-        <div class="col-10 col-lg-6 pe-0 order-2 order-lg-1">
+        <div class="col-10 col-lg-6 pe-0 order-2 order-lg-1 pb-4 pb-lg-0">
           <div class="d-flex flex-column text-center text-lg-start">
             @if ($section['section_title_group']['title'])
               @include('partials.template-parts.title', ['item' => $section['section_title_group'], 'class' => 'section-title'])
