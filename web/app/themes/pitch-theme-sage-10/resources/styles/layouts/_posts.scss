@@ -11,6 +11,12 @@
         .excerpt {
           margin-bottom: 35px;
         }
+
+        a.btn {
+          @include media-breakpoint-up(xs) {
+            font-size: 1.125rem;
+          }
+        }
       }
 
       #social-networks {
