@@ -24,11 +24,12 @@
         </button>
       </div>
       <div id="cgp-results" class="d-flex flex-column">
+        <strong class="title">Les conseillers de notre réseau :</strong>
         @foreach($posts as $post)
         @include('partials.template-parts.cards.cgp.card-cgp')
         @endforeach
       </div>
-      <button id="loadMore" class="btn btn-animated mx-auto mt-4" data-lat="{{@floatval($_POST['lat']) ?? 0}}" data-lng="{{@floatval($_POST['lng']) ?? 0}}" data-url="{{ admin_url( 'admin-ajax.php' ) }}" data-page="1" id="load-more">Afficher plus de résultats</button>
+      <button id="loadMore" class="btn btn-animated mx-auto mt-4" data-lat="{{@floatval($_POST['lat']) ?? 0}}" data-lng="{{@floatval($_POST['lng']) ?? 0}}" data-url="{{ admin_url( 'admin-ajax.php' ) }}" data-page="1" id="load-more"><span>Afficher plus de résultats</span></button>
     </div>
   </div>
   <div class="d-none d-sm-block col-sm-6 col-md-7 col-xl-8">

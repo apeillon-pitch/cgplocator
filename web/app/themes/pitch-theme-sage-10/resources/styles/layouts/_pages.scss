@@ -3,6 +3,14 @@
     width: 100%;
   }
 
+  #cgp-results {
+    padding: 0 2rem;
+
+    strong.title {
+      padding: 2rem 0;
+    }
+  }
+
   .acf-map {
     position: sticky !important;
     top: 114px;
