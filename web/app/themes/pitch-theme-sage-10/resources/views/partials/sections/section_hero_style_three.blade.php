@@ -15,8 +15,8 @@
             @if ($section['introduction'])
               {!! $section['introduction'] !!}
             @endif
-            <div class="row justify-content-center justify-content-lg-start mt-2">
-              <div class="col-11 col-lg-10">
+            <div class="row justify-content-lg-start mt-2">
+              <div class="col-12 col-lg-10">
                 <div class="d-flex flex-column">
                   <form id="cgp-locator" action="{!!wp_make_link_relative(get_permalink($options_data['cgp']['cgp_page'][0]->ID))!!}" method="post">
                     <div class="d-flex flex-row justify-content-between g-0 mb-4">
