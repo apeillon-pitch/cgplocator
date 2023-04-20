@@ -107,11 +107,20 @@
       height: 56px;
       margin-left: 27px;
 
+      @include media-breakpoint-down(md) {
+        height: 45px;
+        margin-left: 16px;
+      }
+
       input {
         height: 100%;
         width: 60px;
         right: 0;
         margin: 0;
+
+        @include media-breakpoint-down(md) {
+          width: 26px;
+        }
       }
 
       label {
@@ -123,6 +132,10 @@
         margin: 0;
         text-align: left;
         padding-left: 12px;
+
+        @include media-breakpoint-down(md) {
+          line-height: 25px;
+        }
       }
 
       .toggle-outside {
@@ -132,6 +145,10 @@
         height: 100%;
         right: 0;
         top: 0;
+
+        @include media-breakpoint-down(md) {
+          width: 20px;
+        }
       }
 
       .toggle-inside {
@@ -139,6 +156,11 @@
         left: 3px;
         top: 3px;
         width: 20px;
+
+        @include media-breakpoint-down(md) {
+          width: 16px;
+          height: 16px;
+        }
       }
     }
   }
@@ -149,6 +171,10 @@
 
   .switch-vertical input ~ input:checked ~ .toggle-outside .toggle-inside {
     top: 33px;
+
+    @include media-breakpoint-down(md) {
+      top: 26px;
+    }
   }
 
   .nav-primary {
