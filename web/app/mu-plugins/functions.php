@@ -74,7 +74,7 @@ function my_acf_admin_head() {
               waitForEl('.acf-tooltip li', function() {
                   $('.acf-tooltip li a').hover(function(){
                       imageTP = $(this).attr('data-layout');
-                      $('.acf-tooltip').append('<div class="image-preview" style=" position:absolute; right:100%; top:50%; transform: translateY(-50%); z-index:999999; border:1px solid #f2f2f2; background-color:#fff; padding:20px;"><img class="img-fluid" style="width:500px; height:auto; display:block;" src="<?php echo $siteURL; ?>/wp-content/themes/pitch-theme/resources/assets/images/' + imageTP + '.png"></div>');
+                      $('.acf-tooltip').append('<div class="image-preview" style=" position:absolute; right:100%; top:50%; transform: translateY(-50%); z-index:999999; border:1px solid #f2f2f2; background-color:#fff; padding:20px;"><img class="img-fluid" style="width:500px; height:auto; display:block;" src="<?php echo get_template_directory_uri(); ?>/resources/images/' + imageTP + '.png"></div>');
                   }, function(){
                       $('.image-preview').remove();
                   });
