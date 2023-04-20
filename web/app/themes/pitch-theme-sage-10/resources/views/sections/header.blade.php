@@ -15,9 +15,23 @@
       <div class="toggle-switch-container">
         <div class="toggle-switch switch-vertical">
           <input id="toggle-a" type="radio" name="switch"/>
-          <label for="toggle-a">Je suis un conseiller</label>
+          <label for="toggle-a">
+            <span class="d-block d-sm-none">
+              Conseiller
+            </span>
+            <span class="d-none d-sm-block">
+              Je suis un conseiller
+            </span>
+          </label>
           <input id="toggle-b" type="radio" name="switch" checked="checked"/>
-          <label for="toggle-b">Je suis un particulier</label>
+          <label for="toggle-b">
+             <span class="d-block d-sm-none">
+              Particulier
+            </span>
+            <span class="d-none d-sm-block">
+              Je suis un particulier
+            </span>
+          </label>
           <span class="toggle-outside">
         <span class="toggle-inside"></span>
       </span>
