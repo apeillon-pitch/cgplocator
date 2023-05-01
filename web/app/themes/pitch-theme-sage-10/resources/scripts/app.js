@@ -27,6 +27,7 @@ const main = async (err) => {
   getPostsOnFilterChange();
   resetFiltersStudyCase();
   resetFiltersBlog();
+  dropdown();
   slideshowRelatedNews();
   slideshowNews();
   slideshowProducts();
@@ -74,162 +75,198 @@ const main = async (err) => {
     });
   }
 
-  jQuery('input#toggle-a').on('click', function () {
-    setTimeout(function () {
-      document.location.href = 'https://www.nortia.fr/';
+  document.querySelector('input#toggle-b').addEventListener('click', function() {
+    setTimeout(function() {
+      window.location.href = 'https://www.nortia.fr/';
     }, 400);
   });
 
   function checkCookie() {
-    let selection = getCookie('site_selector');
-    const myModal = new bootstrap.Modal('#site-selector', {
+    const selection = getCookie('site_selector');
+    const myModal = new bootstrap.Modal(document.querySelector('#site-selector'), {
       keyboard: false,
     });
-    if (selection === '' || selection === null) {
+    if (!selection) {
       myModal.show();
       setCookie('site_selector', 1);
     }
   }
 
   function getCookie(cname) {
-    let name = cname + '=';
-    let ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
+    const name = `${cname}=`;
+    const cookies = document.cookie.split(';');
+
+    for (const cookie of cookies) {
+      const trimmedCookie = cookie.trim();
+      if (trimmedCookie.startsWith(name)) {
+        return trimmedCookie.substring(name.length);
       }
     }
-    return '';
+
+    return "";
   }
 
-  jQuery('.nav-link.dropdown-toggle').on('hover', function () {
-    jQuery(this).addClass('show');
-  });
+  function dropdown() {
+    const navLinks = document.querySelectorAll('.nav-link.dropdown-toggle');
+    const dropdownMenus = document.querySelectorAll('.dropdown-menu');
 
-  jQuery('.nav-link.dropdown-toggle').on('mouseleave', function () {
-    jQuery(this).removeClass('show');
-  });
+    navLinks.forEach(navLink => {
+      navLink.addEventListener('mouseenter', () => {
+        navLink.classList.add('show');
+      });
 
-  jQuery('.dropdown-menu').on('hover', function () {
-    jQuery(this).parent().children().addClass('show');
-  });
+      navLink.addEventListener('mouseleave', () => {
+        navLink.classList.remove('show');
+      });
+    });
 
-  jQuery('.dropdown-menu').on('mouseleave', function () {
-    jQuery(this).parent().children().removeClass('show');
-  });
+    dropdownMenus.forEach(dropdownMenu => {
+      dropdownMenu.addEventListener('mouseenter', () => {
+        Array.from(dropdownMenu.parentElement.children).forEach(child => {
+          child.classList.add('show');
+        });
+      });
+
+      dropdownMenu.addEventListener('mouseleave', () => {
+        Array.from(dropdownMenu.parentElement.children).forEach(child => {
+          child.classList.remove('show');
+        });
+      });
+    });
+  }
 
   function getCaseStudiesOnFilterChange() {
-    jQuery('form#study-case-filter').on('change', function () {
-      var category = jQuery(
-        'form#study-case-filter select#category',
-      ).val();
-      var month = jQuery('form#study-case-filter select#month').val();
-      var year = jQuery('form#study-case-filter select#year').val();
-      var ajaxFunction = 'ajax_case_studies_load';
-      var ajaxFunctionTitle = 'ajax_case_studies_title_load';
-      var pageurl = 'https://www.nortia.fr/nos-analyses-dexperts/';
+    const form = document.querySelector('form#study-case-filter');
+    if (form) {
+      form.addEventListener('change', () => {
+        const category = form.querySelector('select#category').value;
+        const month = form.querySelector('select#month').value;
+        const year = form.querySelector('select#year').value;
+        const ajaxFunction = 'ajax_case_studies_load';
+        const ajaxFunctionTitle = 'ajax_case_studies_title_load';
+        const pageurl = 'https://www.nortia.fr/nos-analyses-dexperts/';
 
-      setCookie('study-case-category', category);
-      setCookie('study-case-month', month);
-      setCookie('study-case-year', year);
+        setCookie('study-case-category', category);
+        setCookie('study-case-month', month);
+        setCookie('study-case-year', year);
 
-      jQuery('#reset').removeClass('d-none').addClass('d-block');
+        const resetButton = document.querySelector('#reset');
+        resetButton.classList.remove('d-none');
+        resetButton.classList.add('d-block');
 
-      setPageNumber();
+        setPageNumber();
 
-      ajaxGetPosts(category, month, year, ajaxFunction, pageurl);
-      ajaxChangeTitle(category, ajaxFunctionTitle);
-    });
+        ajaxGetPosts(category, month, year, ajaxFunction, pageurl);
+        ajaxChangeTitle(category, ajaxFunctionTitle);
+      });
+    }
   }
 
   function resetFiltersStudyCase() {
-    jQuery('form#study-case-filter #reset a').on('click', function () {
-      var category = 'all';
-      var month = 'all';
-      var year = 'all';
-      var ajaxFunction = 'ajax_case_studies_load';
-      var ajaxFunctionTitle = 'ajax_case_studies_title_load';
-      var pageurl = 'https://www.nortia.fr/nos-analyses-dexperts/';
+    const form = document.querySelector('form#study-case-filter');
+    const resetButton = form ? form.querySelector('#reset a') : null;
 
-      setCookie('study-case-category', category);
-      setCookie('study-case-month', month);
-      setCookie('study-case-year', year);
+    if (resetButton) {
+      resetButton.addEventListener('click', () => {
+        const category = 'all';
+        const month = 'all';
+        const year = 'all';
+        const ajaxFunction = 'ajax_case_studies_load';
+        const ajaxFunctionTitle = 'ajax_case_studies_title_load';
+        const pageurl = 'https://www.nortia.fr/nos-analyses-dexperts/';
 
-      jQuery('#reset').removeClass('d-block').addClass('d-none');
+        setCookie('study-case-category', category);
+        setCookie('study-case-month', month);
+        setCookie('study-case-year', year);
 
-      setPageNumber();
+        const resetDiv = document.querySelector('#reset');
+        resetDiv.classList.remove('d-block');
+        resetDiv.classList.add('d-none');
 
-      ajaxGetPosts(category, month, year, ajaxFunction, pageurl);
-      ajaxChangeTitle(category, ajaxFunctionTitle);
-    });
+        setPageNumber();
+
+        ajaxGetPosts(category, month, year, ajaxFunction, pageurl);
+        ajaxChangeTitle(category, ajaxFunctionTitle);
+      });
+    }
   }
 
   function resetFiltersBlog() {
-    jQuery('form#blog-filter #reset a').on('click', function () {
-      var category = 'all';
-      var month = 'all';
-      var year = 'all';
-      var ajaxFunction = 'ajax_posts_load';
-      var ajaxFunctionTitle = 'ajax_posts_title_load';
-      var pageurl = 'https://www.nortia.fr/actualite-nortia/';
+    const form = document.querySelector('form#blog-filter');
+    const resetButton = form ? form.querySelector('#reset a') : null;
 
-      setCookie('category', category);
-      setCookie('month', month);
-      setCookie('year', year);
+    if (resetButton) {
+      resetButton.addEventListener('click', () => {
+        const category = 'all';
+        const month = 'all';
+        const year = 'all';
+        const ajaxFunction = 'ajax_posts_load';
+        const ajaxFunctionTitle = 'ajax_posts_title_load';
+        const pageurl = 'https://www.nortia.fr/actualite-nortia/';
 
-      jQuery('#reset').removeClass('d-block').addClass('d-none');
+        setCookie('category', category);
+        setCookie('month', month);
+        setCookie('year', year);
 
-      setPageNumber();
+        const resetDiv = document.querySelector('#reset');
+        resetDiv.classList.remove('d-block');
+        resetDiv.classList.add('d-none');
 
-      ajaxChangeTitle(category, ajaxFunctionTitle);
-      ajaxGetPosts(category, month, year, ajaxFunction, pageurl);
-    });
+        setPageNumber();
+
+        ajaxChangeTitle(category, ajaxFunctionTitle);
+        ajaxGetPosts(category, month, year, ajaxFunction, pageurl);
+      });
+    }
   }
 
   function getPostsOnFilterChange() {
-    jQuery('form#blog-filter').on('change', function () {
-      var category = jQuery('form#blog-filter select#category').val();
-      var month = jQuery('form#blog-filter select#month').val();
-      var year = jQuery('form#blog-filter select#year').val();
-      var ajaxFunction = 'ajax_posts_load';
-      var ajaxFunctionTitle = 'ajax_posts_title_load';
-      var pageurl = 'https://www.nortia.fr/actualite-nortia/';
+    const blogFilterForm = document.querySelector('form#blog-filter');
+    if (blogFilterForm) {
+      blogFilterForm.addEventListener('change', () => {
+        const category = blogFilterForm.querySelector('select#category').value;
+        const month = blogFilterForm.querySelector('select#month').value;
+        const year = blogFilterForm.querySelector('select#year').value;
+        const ajaxFunction = 'ajax_posts_load';
+        const ajaxFunctionTitle = 'ajax_posts_title_load';
+        const pageurl = 'https://www.nortia.fr/actualite-nortia/';
 
-      setCookie('category', category);
-      setCookie('month', month);
-      setCookie('year', year);
+        setCookie('category', category);
+        setCookie('month', month);
+        setCookie('year', year);
 
-      jQuery('#reset').removeClass('d-none').addClass('d-block');
+        const resetButton = document.querySelector('#reset');
+        resetButton.classList.remove('d-none');
+        resetButton.classList.add('d-block');
 
-      setPageNumber();
+        setPageNumber();
 
-      ajaxGetPosts(category, month, year, ajaxFunction, pageurl);
-      ajaxChangeTitle(category, ajaxFunctionTitle);
-    });
+        ajaxGetPosts(category, month, year, ajaxFunction, pageurl);
+        ajaxChangeTitle(category, ajaxFunctionTitle);
+      });
+    }
   }
 
   function setCookie(name, value) {
-    var date = new Date();
-    date.setTime(date.getTime() + 6000 * 6000 * 1000);
-    var expires = '; expires=' + date.toGMTString();
+    const date = new Date();
+    date.setTime(date.getTime() + (60 * 60 * 1000));
+    const expires = '; expires=' + date.toGMTString();
 
     if (value.length === 0) {
-      document.cookie =
-        name + '=' + JSON.stringify(value) + ';expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
+      document.cookie = `${name}=${JSON.stringify(value)};expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/`;
     } else {
-      document.cookie =
-        name + '=' + JSON.stringify(value) + expires + '; path=/';
+      document.cookie = `${name}=${JSON.stringify(value)}${expires}; path=/`;
     }
   }
 
   function setPageNumber() {
-    var pagination = jQuery('input#pagination').val();
-    if (pagination > 1) {
-      window.location.replace('/blog/');
+    const paginationInput = document.querySelector('input#pagination');
+
+    if (paginationInput) {
+      const pagination = paginationInput.value;
+      if (pagination > 1) {
+        window.location.replace('/blog/');
+      }
     }
   }
 
@@ -496,34 +533,30 @@ const main = async (err) => {
   }
 
   function getStickyMenu() {
-    var w = window;
-    var d = document;
-    var el_html = d.documentElement,
-      el_body = d.getElementsByTagName('body')[0],
-      menuIsStuck = function () {
-        var wScrollTop = w.pageYOffset || el_body.scrollTop,
-          regexp = /(nav-is-stuck)/i,
-          classFound = el_html.className.match(regexp),
-          scrollValue = 0;
-        if (wScrollTop > scrollValue && !classFound) {
-          el_html.className = el_html.className + ' nav-is-stuck';
-          el_body.style.paddingTop = '0';
-        }
-        if (wScrollTop < 2 && classFound) {
-          el_html.className = el_html.className.replace(regexp, '');
-          el_body.style.paddingTop = '0';
-        }
-        if (wScrollTop < 2 && classFound) {
-          el_html.className = el_html.className.replace(regexp, '');
-          el_body.style.paddingTop = '0';
-        }
-      },
-      onScrolling = function () {
-        menuIsStuck();
-      };
+    const el_html = document.documentElement;
+    const el_body = document.querySelector('body');
+    const regexp = /(nav-is-stuck)/i;
 
-    w.addEventListener('scroll', function () {
-      w.requestAnimationFrame(onScrolling);
+    const menuIsStuck = () => {
+      const wScrollTop = window.pageYOffset || el_body.scrollTop;
+      const classFound = el_html.className.match(regexp);
+      const scrollValue = 0;
+
+      if (wScrollTop > scrollValue && !classFound) {
+        el_html.classList.add('nav-is-stuck');
+        el_body.style.paddingTop = '0';
+      } else if (wScrollTop < 2 && classFound) {
+        el_html.classList.remove('nav-is-stuck');
+        el_body.style.paddingTop = '0';
+      }
+    };
+
+    const onScrolling = () => {
+      menuIsStuck();
+    };
+
+    window.addEventListener('scroll', () => {
+      window.requestAnimationFrame(onScrolling);
     });
   }
 
