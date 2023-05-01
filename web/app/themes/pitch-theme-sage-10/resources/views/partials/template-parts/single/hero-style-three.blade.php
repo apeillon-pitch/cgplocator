@@ -7,15 +7,15 @@
           <div class="d-flex flex-column">
             <div class="wrapper-heading mb-0">
               @if ($cgp['title'])
-                <h1 class="section-title mb-4">{!! $cgp['title'] !!}</h1>
+              <h1 class="section-title mb-4">{!! $cgp['title'] !!}</h1>
               @endif
               @if ($cgp['address'])
-                <p class="address">{!! $cgp['address']['address'] !!}</p>
+              <p class="address">{!! $cgp['address']['address'] !!}</p>
               @endif
               @if ($cgp['email'] && $cgp['cgp-options']['cta_title'])
-                <a href="#section-1" aria-label="{!! $cgp['cgp-options']['cta_title'] !!}" class="btn btn-simple">
-                  {!! $cgp['cgp-options']['cta_title'] !!}
-                </a>
+              <a href="#section-1" aria-label="{!! $cgp['cgp-options']['cta_title'] !!}" class="btn btn-simple">
+                {!! $cgp['cgp-options']['cta_title'] !!}
+              </a>
               @endif
             </div>
           </div>
@@ -24,10 +24,10 @@
     </div>
   </div>
   @if ($cgp['address'])
-    <div class="acf-map" data-zoom="16">
-      <div class="marker" data-lat="<?php echo esc_attr($cgp['address']['lat']); ?>"
-           data-lng="<?php echo esc_attr($cgp['address']['lng']); ?>"></div>
-    </div>
+  <div class="acf-map" data-zoom="16">
+    <div class="marker" data-lat="<?php echo esc_attr($cgp['address']['lat']); ?>"
+      data-lng="<?php echo esc_attr($cgp['address']['lng']); ?>"></div>
+  </div>
   @endif
 </div>
 
@@ -97,7 +97,11 @@
       // Create marker instance.
       var marker = new google.maps.Marker({
         position: latLng,
-        map: map
+        map: map,
+        icon: {
+            url: "@asset('images/map-pin.svg')",
+            scaledSize: new google.maps.Size(64, 64),
+          }
       });
 
       // Append to reference for later use.

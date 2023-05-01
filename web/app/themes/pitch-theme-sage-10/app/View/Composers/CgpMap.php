@@ -37,7 +37,7 @@ class CgpMap extends Composer
         if (!isset($_POST['lat']) OR !isset($_POST['lng'])) {
             return get_posts(array(
                 'post_type' => 'cgp',
-                'posts_per_page' => 4,
+                'posts_per_page' => 10,
                 'post_status' => 'publish',
             ));
         }
@@ -46,7 +46,7 @@ class CgpMap extends Composer
             'lat' => (float) $_POST["lat"],
             'lng' => (float) $_POST["lng"],
             'distance' => $_POST["distance"] ?? -1,
-            'numberposts' => 4,
+            'numberposts' => 10,
             'offset' => 0,
             ));
     }

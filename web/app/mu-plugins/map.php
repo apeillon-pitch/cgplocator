@@ -16,7 +16,7 @@ function ajax_script_load_more_cgp($args)
     strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
     $ajax = true;
   }
-  $num = 4;
+  $num = 10;
   $paged = $_POST['page'] + 1;
 
   if (!isset($_POST['lat']) or !isset($_POST['lng'])) {

@@ -56,7 +56,7 @@
           map: map,
           icon: {
             url: "@asset('images/map-pin.svg')",
-            scaledSize: new google.maps.Size(48, 48),
+            scaledSize: new google.maps.Size(56, 56),
           }
         });
 
