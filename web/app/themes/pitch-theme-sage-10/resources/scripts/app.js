@@ -470,7 +470,7 @@ const main = async (err) => {
   }
 
   function getMobileSubmenu() {
-    jQuery(".navbar-mobile li.menu-item-has-children").click(function (event) {
+    jQuery(".navbar-mobile li.menu-item-has-children").on("click", function (event) {
       event.preventDefault();
     });
 
