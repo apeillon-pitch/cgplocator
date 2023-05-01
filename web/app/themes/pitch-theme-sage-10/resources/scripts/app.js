@@ -433,6 +433,10 @@ const main = async (err) => {
   }
 
   function getMobileSubmenu() {
+    jQuery(".navbar-mobile li.menu-item-has-children").click(function (event) {
+      event.preventDefault();
+    });
+
     jQuery('.navbar-mobile li.menu-item-has-children a').on(
       'click',
       function (event) {

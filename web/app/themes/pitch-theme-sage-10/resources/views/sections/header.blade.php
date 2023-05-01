@@ -1,7 +1,7 @@
 <header id="o-wrapper" class="banner">
   <div class="d-flex flex-row justify-content-between align-items-center">
     <div class="d-flex flex-row align-items-center">
-      <div class="d-block d-md-none me-4 me-lg-0">
+      <div class="d-block d-md-none">
         {{--<div id="menu-button">
           <div class="c-buttons">
             <a id="c-button--slide-right" class="hamburger c-button">
