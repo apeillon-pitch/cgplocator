@@ -1,17 +1,6 @@
 <header id="o-wrapper" class="banner">
-  <div class="d-flex flex-row justify-content-between align-items-center">
-    <div class="d-flex flex-row align-items-center">
-      <div class="d-block d-md-none">
-        {{--<div id="menu-button">
-          <div class="c-buttons">
-            <a id="c-button--slide-right" class="hamburger c-button">
-              <div class="top-bun"></div>
-              <div class="meat"></div>
-              <div class="bottom-bun"></div>
-            </a>
-          </div>
-        </div>--}}
-      </div>
+  <div class="row justify-content-between align-items-center">
+    <div class="col-6 col-md-4 flex-row align-items-center">
       <div class="toggle-switch-container">
         <div class="toggle-switch switch-vertical">
           <input id="toggle-a" type="radio" name="switch"/>
@@ -38,13 +27,13 @@
         </div>
       </div>
     </div>
-    <div class="d-flex">
+    <div class="col-6 col-md-4 justify-content-center">
       <a href="{{ home_url() }}">
-        <img src="{!! $header_data['data']['logo']['url'] !!}" class="img-fluid logo d-block mx-auto"
+        <img src="{!! $header_data['data']['logo']['url'] !!}" class="img-fluid logo"
              alt="{!! $header_data['data']['logo']['alt'] !!}">
       </a>
     </div>
-    <div class="d-none d-md-flex flex-row align-items-center">
+    <div class="d-none d-md-block col-md-4 flex-row align-items-center">
       @if($header_data['data']['cta_repeater'])
         <div
           class="d-none d-md-flex flex-column flex-lg-row justify-content-end align-items-end align-items-lg-center me-5 me-md-0">
@@ -70,7 +59,7 @@
     </div>
   </div>
   @if($mainMenu)
-    <div class="d-none d-md-flex flex-row justify-content-center mt-2">
+    <div class="d-none d-md-flex flex-row  flex-fill justify-content-center mt-2">
       <div id="nav-wrapper">
         <nav class="nav-primary navbar navbar-expand-md">
           {!! wp_nav_menu($mainMenu) !!}

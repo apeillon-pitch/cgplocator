@@ -18,14 +18,17 @@
   }
 
   .logo {
+    display: block;
     width: 140px;
     min-width: 140px;
     max-width: 100%;
-    margin-right: 40px;
+    margin: 0 auto;
 
     @include media-breakpoint-down(md) {
       width: 97.5px;
       min-width: 97.5px;
+      margin: 0;
+      float: right;
     }
   }
 
