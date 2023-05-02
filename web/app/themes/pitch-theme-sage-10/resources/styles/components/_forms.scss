@@ -311,6 +311,14 @@
 }
 
 form {
+  input,
+  .form-control {
+    &:focus {
+      box-shadow: none;
+      border-color: #a7a7a7;
+    }
+  }
+
   &#cgp-locator {
     input {
       border-radius: 7px 0 0 7px;
