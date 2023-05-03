@@ -84,11 +84,26 @@
       border: 0;
       background-color: transparent;
 
+      img.logo {
+        margin-bottom: 3rem;
+
+        @include media-breakpoint-down(md) {
+          display: block;
+          width: 170px;
+          height: auto;
+          margin: 0 auto 35px;
+        }
+      }
+
       .wrapper-block {
         position: relative;
         padding: 100px 50px 50px;
         border-radius: 10px;
         background-color: $pastel;
+
+        @include media-breakpoint-down(md) {
+          padding: 100px 30px 30px;
+        }
 
         .wrapper-icon {
           width: 152px;
@@ -103,6 +118,20 @@
           transform: translateX(-50%);
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.21);
           background-color: $pastel;
+
+          @include media-breakpoint-down(md) {
+            width: 125px;
+            height: 125px;
+            top: -30px;
+          }
+        }
+
+        &.bg-blue {
+          background-color: #f8fbff;
+
+          .wrapper-icon {
+            background-color: #f8fbff;
+          }
         }
 
         strong {

@@ -195,6 +195,10 @@
           transform: rotate(-90deg) !important;
         }
       }
+
+      .dropdown-menu.show {
+        display: none !important;
+      }
     }
   }
 }

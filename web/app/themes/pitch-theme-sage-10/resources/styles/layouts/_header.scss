@@ -15,6 +15,7 @@
 
   @include media-breakpoint-down(md) {
     padding: 12px 24px;
+    overflow: hidden;
   }
 
   .logo {

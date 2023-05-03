@@ -12,7 +12,7 @@
             @if ($options_data['modal_site_selector']['block_repeater'])
               @foreach($options_data['modal_site_selector']['block_repeater'] as $item)
                 <div class="col-12 col-md-6 text-center mb-5 pb- mb-md-0">
-                  <div class="wrapper-block h-100">
+                  <div class="wrapper-block bg-{{ $item['bg_color'] }} h-100">
                     @if ($item['icon'])
                       <div class="wrapper-icon">
                         <img src="{!! $item['icon']['url'] !!}" class="img-fluid" alt="{!! $item['icon']['alt'] !!}">
