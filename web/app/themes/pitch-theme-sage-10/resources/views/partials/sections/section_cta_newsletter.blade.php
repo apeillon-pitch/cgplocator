@@ -1,7 +1,7 @@
 <div id="section-{{ $row }}"
      class="section cta-newsletter {{ $section['padding_group']['padding_top'] }} {{ $section['padding_group']['padding_bottom']}}">
     @include('partials.template-parts.section-cta-contact')
-    @if($section['newsletter_group']['section_title_group']['title'] OR $section['newsletter_group']['introduction'])
+    {{--@if($section['newsletter_group']['section_title_group']['title'] OR $section['newsletter_group']['introduction'])
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-11 col-lg-10">
@@ -26,5 +26,5 @@
                 </div>
             </div>
         </div>
-    @endif
+    @endif--}}
 </div>
