@@ -42,7 +42,7 @@
             @endif
           </div>
           @if ($options_data['modal_site_selector']['mention'])
-            <div class="row mt-4">
+            <div class="row mt-sm-4">
               <div class="col-12 text-white">
                 <p>{!! $options_data['modal_site_selector']['mention'] !!}</p>
               </div>
