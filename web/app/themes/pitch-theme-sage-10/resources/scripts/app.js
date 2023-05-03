@@ -81,14 +81,31 @@ const main = async (err) => {
     }, 400);
   });
 
+  // Fonction pour récupérer la valeur d'un paramètre dans l'URL
+  function getUrlParameter(name) {
+    var regex = new RegExp('[\\?&]' + name.replace(/[[\]]/g, '\\$&') + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  }
+
+
   function checkCookie() {
-    const selection = getCookie('site_selector');
-    const myModal = new bootstrap.Modal(document.querySelector('#site-selector'), {
-      keyboard: false,
-    });
-    if (!selection) {
-      myModal.show();
+    // Récupérer la valeur du paramètre "site" dans l'URL
+    var siteParam = getUrlParameter('site');
+
+    if (siteParam === '1') {
+      // Code pour définir le cookie ici, par exemple :
       setCookie('site_selector', 1);
+    } else {
+
+      const selection = getCookie('site_selector');
+      const myModal = new bootstrap.Modal(document.querySelector('#site-selector'), {
+        keyboard: false,
+      });
+
+      if (!selection) {
+        myModal.show();
+      }
     }
   }
 
