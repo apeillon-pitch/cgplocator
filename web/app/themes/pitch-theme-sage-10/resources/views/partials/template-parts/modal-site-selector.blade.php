@@ -5,8 +5,8 @@
     <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
-          <div class="row">
-            <div class="col-12 text-center">
+          <div class="row justify-content-center">
+            <div class="col-6 col-sm-7 col-lg-12 text-center">
               <img src="@asset('images/nortia-white.svg')" alt="" class="img-fluid mb-5 pb-4">
             </div>
             @if ($options_data['modal_site_selector']['block_repeater'])

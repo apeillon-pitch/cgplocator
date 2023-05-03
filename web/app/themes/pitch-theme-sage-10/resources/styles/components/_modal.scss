@@ -105,6 +105,10 @@
           padding: 100px 30px 30px;
         }
 
+        @include media-breakpoint-down(sm) {
+          padding: 60px 45px 30px;
+        }
+
         .wrapper-icon {
           width: 152px;
           height: 153px;
@@ -124,6 +128,18 @@
             height: 125px;
             top: -30px;
           }
+
+          @include media-breakpoint-down(sm) {
+            height: 80px;
+            width: 80px;
+            top: -36px;
+          }
+
+          img {
+            @include media-breakpoint-down(sm) {
+              max-width: 50px;
+            }
+          }
         }
 
         &.bg-blue {
@@ -135,9 +151,13 @@
         }
 
         strong {
-          font-size: 28px;
+          font-size: 1.75rem;
           font-weight: 800;
           margin-bottom: 25px;
+
+          @include media-breakpoint-down(md) {
+            font-size: 1.25rem;
+          }
         }
       }
 
