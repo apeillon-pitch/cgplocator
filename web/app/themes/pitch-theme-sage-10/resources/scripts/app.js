@@ -77,7 +77,7 @@ const main = async (err) => {
 
   document.querySelector('input#toggle-a').addEventListener('click', function() {
     setTimeout(function() {
-      window.location.href = 'https://www.nortia.fr/';
+      window.location.href = 'https://www.nortia.fr/?site=1';
     }, 400);
   });
 
