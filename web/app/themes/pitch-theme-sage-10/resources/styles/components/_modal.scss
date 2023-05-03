@@ -99,7 +99,7 @@
         position: relative;
         padding: 100px 50px 50px;
         border-radius: 10px;
-        background-color: $pastel;
+        background-color: #fff6f1;
 
         @include media-breakpoint-down(md) {
           padding: 100px 30px 30px;
@@ -117,7 +117,7 @@
           top: -70px;
           transform: translateX(-50%);
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.21);
-          background-color: $pastel;
+          background-color: #fff6f1;
 
           @include media-breakpoint-down(md) {
             width: 125px;
