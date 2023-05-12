@@ -97,7 +97,6 @@ const main = async (err) => {
       // Code pour définir le cookie ici, par exemple :
       setCookie('site_selector', 1);
     } else {
-
       const selection = getCookie('site_selector');
       const myModal = new bootstrap.Modal(document.querySelector('#site-selector'), {
         keyboard: false,
@@ -105,6 +104,7 @@ const main = async (err) => {
 
       if (!selection) {
         myModal.show();
+        setCookie('site_selector', 1);
       }
     }
   }
