@@ -11,7 +11,7 @@
             </div>
           @endif
           <div class="col-11 col-lg-8">
-            @php echo do_shortcode('[gravityforms id="3" title="false" field_values="email=' . $cgp['email'] . '"]') @endphp
+            @php echo do_shortcode('[gravityforms id="3" title="false" field_values="company=' . get_the_title() . '&email=' . $cgp['email'] . '"]') @endphp
           </div>
         </div>
         @endif
