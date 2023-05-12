@@ -266,7 +266,7 @@ const main = async (err) => {
 
   function setCookie(name, value) {
     const date = new Date();
-    date.setTime(date.getTime() + (60 * 60 * 1000));
+    date.setMonth(date.getMonth() + 13);
     const expires = '; expires=' + date.toGMTString();
 
     if (value.length === 0) {
