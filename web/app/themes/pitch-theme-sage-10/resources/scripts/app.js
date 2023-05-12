@@ -90,8 +90,8 @@ const main = async (err) => {
 
 
   function checkCookie() {
-    const cgp = getCookie('cgp');
-    const cgpModal = new bootstrap.Modal(document.querySelector('#cgpModal'), {
+    const disclaimer = getCookie('disclaimer');
+    const disclaimerModal = new bootstrap.Modal(document.querySelector('#disclaimerModal'), {
       keyboard: false,
     });
 
@@ -102,9 +102,9 @@ const main = async (err) => {
       // Code pour définir le cookie ici, par exemple :
       setCookie('site_selector', 1);
 
-      if (!cgp) {
-        cgpModal.show();
-        setCookie('cgp', 1);
+      if (!disclaimer) {
+        disclaimerModal.show();
+        setCookie('disclaimer', 1);
       }
     } else {
       const selection = getCookie('site_selector');
