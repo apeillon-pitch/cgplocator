@@ -90,12 +90,22 @@ const main = async (err) => {
 
 
   function checkCookie() {
+    const cgp = getCookie('cgp');
+    const cgpModal = new bootstrap.Modal(document.querySelector('#cgpModal'), {
+      keyboard: false,
+    });
+
     // Récupérer la valeur du paramètre "site" dans l'URL
     var siteParam = getUrlParameter('site');
 
     if (siteParam === '1') {
       // Code pour définir le cookie ici, par exemple :
       setCookie('site_selector', 1);
+
+      if (!cgp) {
+        cgpModal.show();
+        setCookie('cgp', 1);
+      }
     } else {
       const selection = getCookie('site_selector');
       const myModal = new bootstrap.Modal(document.querySelector('#site-selector'), {
