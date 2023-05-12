@@ -116,10 +116,12 @@ const main = async (err) => {
         myModal.show();
         setCookie('site_selector', 1);
 
-        if (!disclaimer) {
-          disclaimerModal.show();
-          setCookie('disclaimer', 1);
-        }
+        jQuery('#site-selector').on('hidden.bs.modal', function () {
+          if (!disclaimer) {
+            disclaimerModal.show();
+            setCookie('disclaimer', 1);
+          }
+        })
       }
     }
   }
