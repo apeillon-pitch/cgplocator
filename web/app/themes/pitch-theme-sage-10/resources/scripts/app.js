@@ -115,6 +115,11 @@ const main = async (err) => {
       if (!selection) {
         myModal.show();
         setCookie('site_selector', 1);
+
+        if (!disclaimer) {
+          disclaimerModal.show();
+          setCookie('disclaimer', 1);
+        }
       }
     }
   }
