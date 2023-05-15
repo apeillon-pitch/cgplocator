@@ -179,7 +179,12 @@
 
       button.close {
         border: 0;
+        color: $darkGrey;
         background: transparent;
+
+        &:hover {
+          color: $orange;
+        }
 
         i {
           font-size: 2rem;
