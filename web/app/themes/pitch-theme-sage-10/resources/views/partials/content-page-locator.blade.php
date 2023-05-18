@@ -16,11 +16,29 @@
             <input type="hidden" id="lng" name="lng" value="{!! $_POST['lng'] ?? 0 !!}">
           </div>
           <div class="d-flex">
-            <button type="submit" class="btn btn-primary"><i class="fa-regular fa-magnifying-glass"></i></button>
+            <button type="submit" class="btn btn-primary" id="cgp-search-submit"><i class="fa-regular fa-magnifying-glass"></i></button>
           </div>
         </form>
-        <button class="btn btn-primary" id="geolocation">Géolocalisez-moi <i
-            class="fa-regular fa-location-crosshairs"></i>
+        <div class="d-none fs-6 pb-4" id="error-form-cgp">
+          Veuillez saisir une adresse ou cliquer sur le bouton de géolocalisation.
+        </div>
+        <script>
+          // Prevent sending form if coordinates are 0
+          jQuery('#cgp-locator').submit(function(e) {
+            console.log(jQuery('#lat').val(), jQuery('#lng').val());
+            if (jQuery('#lat').val() == 0 && jQuery('#lng').val() == 0) {
+              e.preventDefault();
+              jQuery('#error-form-cgp').removeClass('d-none');
+            }
+          });
+        </script>
+        <button class="btn btn-primary" id="geolocation">
+          <span id="geoButtonText">
+            Géolocalisez-moi <i class="fa-regular fa-location-crosshairs"></i>
+          </span>
+          <div id="spinner" class="spinner-border spinner-border-sm text-light" style="display:none;" role="status">
+            <span class="visually-hidden">Géolocalisation en cours...</span>
+          </div>
         </button>
       </div>
       <div id="cgp-results" class="d-flex flex-column">
@@ -43,34 +61,40 @@
 
       var mapArgs = {
         zoom: $el.data('zoom') || 14,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.LIGHT_POLITICAL
       };
       var map = new google.maps.Map($el[0], mapArgs);
 
       map.markers = [];
       const infoWindow = new google.maps.InfoWindow();
 
-      window.cgps && await window.cgps.map((cgp) => {
-        var marker = new google.maps.Marker({
-          position: {lat: parseFloat(cgp.lat), lng: parseFloat(cgp.lng)},
-          map: map,
-          icon: {
-            url: "@asset('images/map-pin.svg')",
-            scaledSize: new google.maps.Size(56, 56),
-          }
-        });
+      if (window.cgps) {
+        await Promise.all(window.cgps.map(async (cgp, index) => {
+          var marker = new google.maps.Marker({
+            position: {lat: parseFloat(cgp.lat), lng: parseFloat(cgp.lng)},
+            map: map,
+            icon: {
+              url: "@asset('images/map-pin.svg')",
+              scaledSize: new google.maps.Size(56, 56),
+            }
+          });
 
-        map.markers.push(marker);
+          map.markers.push(marker);
+          console.log("Processing", cgp.title, "at latitude", cgp.lat, "and longitude", cgp.lng, "with index", index);
 
-        marker.addListener('click', () => {
-          infoWindow.close();
-          infoWindow.setContent(cgp.tooltip);
-          infoWindow.open(map, marker);
-        })
-      });
+          marker.addListener('click', () => {
+            map.setCenter(marker.getPosition());
+            map.setZoom(19);
+            infoWindow.close();
+            infoWindow.setContent(cgp.tooltip);
+            infoWindow.open(map, marker);
+          })
+        }));
+      }
 
       map.addListener('click', () => {
         infoWindow.close();
+        centerMap(map);
       });
 
       centerMap(map);

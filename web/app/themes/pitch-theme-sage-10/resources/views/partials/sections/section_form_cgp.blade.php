@@ -19,7 +19,13 @@
                     </button>
                   </div>
                 </form>
-                <button class="btn btn-primary">Géolocalisez-moi <i class="fa-regular fa-location-crosshairs"></i>
+                <button class="btn btn-primary" id="geolocation">
+                  <span id="geoButtonText">
+                    Géolocalisez-moi <i class="fa-regular fa-location-crosshairs"></i>
+                  </span>
+                  <div id="spinner" class="spinner-border spinner-border-sm text-light" style="display:none;" role="status">
+                    <span class="visually-hidden">Géolocalisation en cours...</span>
+                  </div>
                 </button>
               </div>
             </div>

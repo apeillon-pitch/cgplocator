@@ -617,16 +617,24 @@ const main = async (err) => {
 
     function getGeoLocation() {
         let geoLocationBtn = document.querySelector('button#geolocation');
+        let geoButtonText = document.querySelector('#geoButtonText');
+        let spinner = document.querySelector('#spinner');
         let latField = document.querySelector('input#lat');
         let lngField = document.querySelector('input#lng');
         let geoForm = document.querySelector('form#cgp-locator');
+
         if (geoLocationBtn) {
             geoLocationBtn.addEventListener('click', function (e) {
                 e.preventDefault();
                 if ('geolocation' in navigator) {
+                    geoButtonText.innerHTML = 'Géolocalisation en cours...';
+                    geoLocationBtn.setAttribute('disabled', 'disabled');
+                    spinner.style.display = 'inline-block'; // show spinner
+
                     navigator.geolocation.getCurrentPosition(
                         showPosition,
                         showError,
+                        {timeout: 7000},
                     );
                 } else {
                     // add d-none class to the button
@@ -634,38 +642,29 @@ const main = async (err) => {
                 }
             });
         }
+
         const showPosition = (position) => {
             latField.value = position.coords.latitude;
             lngField.value = position.coords.longitude;
+
+            // hide spinner and restore button text
+            spinner.style.display = 'none';
+            geoButtonText.innerHTML =
+                'Géolocalisez-moi <i class="fa-regular fa-location-crosshairs"></i>';
+            geoLocationBtn.removeAttribute('disabled');
             geoForm.submit();
         };
+
         const showError = (error) => {
-            switch (error.code) {
-                case error.PERMISSION_DENIED:
-                    console.log('User denied the request for Geolocation.');
-                    geoLocationBtn.setAttribute('disabled', 'disabled');
-                    geoLocationBtn.innerHTML =
-                        '<span class="me-2">Géolocalisation indisponible</span> <i class="fa-regular fa-location-crosshairs"></i>';
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    console.log('Location information is unavailable.');
-                    geoLocationBtn.setAttribute('disabled', 'disabled');
-                    geoLocationBtn.innerHTML =
-                        '<span class="me-2">Géolocalisation indisponible</span> <i class="fa-regular fa-location-crosshairs"></i>';
-                    break;
-                case error.TIMEOUT:
-                    console.log('The request to get user location timed out.');
-                    geoLocationBtn.setAttribute('disabled', 'disabled');
-                    geoLocationBtn.innerHTML =
-                        '<span class="me-2">Géolocalisation indisponible</span> <i class="fa-regular fa-location-crosshairs"></i>';
-                    break;
-                case error.UNKNOWN_ERROR:
-                    console.log('An unknown error occurred.');
-                    geoLocationBtn.setAttribute('disabled', 'disabled');
-                    geoLocationBtn.innerHTML =
-                        '<span class="me-2">Géolocalisation indisponible</span> <i class="fa-regular fa-location-crosshairs"></i>';
-                    break;
-            }
+            // hide spinner and restore button text
+            spinner.style.display = 'none';
+            geoButtonText.style.display = 'inline';
+
+            console.log('Geolocation error: ', error.message);
+            geoLocationBtn.setAttribute('disabled', 'disabled');
+            geoLocationBtn.classList.add('geoloc-error');
+            geoLocationBtn.innerHTML =
+                '<span class="me-2">Géolocalisation indisponible</span> <i class="fa-regular fa-location-crosshairs"></i>';
         };
     }
 
