@@ -5,7 +5,6 @@ namespace App\View\Composers;
 use Roots\Acorn\View\Composer;
 use NortiaCGPLocator\Geolocator\GeolocatorComponent;
 use function get_posts;
-use function var_dump;
 
 class CgpMap extends Composer
 {
@@ -34,7 +33,7 @@ class CgpMap extends Composer
 
     public function getCgp()
     {
-        if (!isset($_POST['lat']) OR !isset($_POST['lng'])) {
+        if (!isset($_POST['lat']) or !isset($_POST['lng'])) {
             return get_posts(array(
                 'post_type' => 'cgp',
                 'posts_per_page' => 10,
@@ -48,10 +47,11 @@ class CgpMap extends Composer
             'distance' => $_POST["distance"] ?? -1,
             'numberposts' => 10,
             'offset' => 0,
-            ));
+        ));
     }
 
-    public function jsonList($posts) {
+    public function jsonList($posts)
+    {
         $posts = $posts ?? $this->getCgp();
 
         $json = array();
@@ -59,8 +59,8 @@ class CgpMap extends Composer
         foreach ($posts as $post) {
             $json[] = array(
                 'title' => $post->post_title,
-                'lat' => get_post_meta($post->ID, '_latitude', true),
-                'lng' => get_post_meta($post->ID, '_longitude', true),
+                'lat' => $this->fuzz((float)get_post_meta($post->ID, '_latitude', true)),
+                'lng' => $this->fuzz((float)get_post_meta($post->ID, '_longitude', true)),
                 'address' => get_field('address', $post->ID, true)['address'],
                 'email' => get_post_meta($post->ID, 'cgp_email', true),
                 'link' => get_permalink($post->ID),
@@ -70,5 +70,16 @@ class CgpMap extends Composer
         }
 
         return $json;
+    }
+
+    /** Value fuzzer
+     *  Fuzzes GPS coordinates to allow overlapping markers to be uniquely displayed
+     *  @param $value float
+     *  @return float
+     */
+    private function fuzz($value)
+    {
+        $offset = (mt_rand(-500, 500) / 10000000);
+        return $value + $offset;
     }
 }
