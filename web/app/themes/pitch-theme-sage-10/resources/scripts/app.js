@@ -670,6 +670,26 @@ const main = async (err) => {
 
     function gMapAutocomplete() {
         let locationField = document.querySelector('input#locationField');
+        let latField = document.querySelector('input#lat');
+        let lngField = document.querySelector('input#lng');
+        let form = document.querySelector('form#cgp-locator');
+        let autocompleteReady = false; // Add a flag to indicate when autocomplete is done
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            console.debug('latField.value', latField.value);
+            console.debug('lngField.value', lngField.value);
+
+            // If the lat and lng fields are filled and autocomplete is ready, submit the form
+            if (
+                latField.value.length > 0 &&
+                lngField.value.length > 0 &&
+                autocompleteReady
+            ) {
+                form.submit();
+            }
+        });
+
         if (locationField) {
             // eslint-disable-next-line no-undef
             let autocomplete = new google.maps.places.Autocomplete(
@@ -679,14 +699,20 @@ const main = async (err) => {
                     componentRestrictions: {country: ['fr', 'nc', 'mq', 'pf']},
                 },
             );
-            autocomplete.setFields(['address_component', 'geometry']);
+
+            autocomplete.setFields(['address_components', 'geometry']);
+
             autocomplete.addListener('place_changed', function () {
                 let place = autocomplete.getPlace();
                 // Fill out form fields
-                let latField = document.querySelector('input#lat');
-                let lngField = document.querySelector('input#lng');
                 latField.value = place.geometry.location.lat();
                 lngField.value = place.geometry.location.lng();
+
+                // Indicate that autocomplete is done
+                autocompleteReady = true;
+
+                // Try to submit the form again
+                form.dispatchEvent(new Event('submit', {cancelable: true}));
             });
         }
     }
