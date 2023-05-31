@@ -84,7 +84,6 @@
 
           marker.addListener('click', () => {
             map.setCenter(marker.getPosition());
-            map.setZoom(19);
             infoWindow.close();
             infoWindow.setContent(cgp.tooltip);
             infoWindow.open(map, marker);
