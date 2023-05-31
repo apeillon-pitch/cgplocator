@@ -25,7 +25,6 @@
         <script>
           // Prevent sending form if coordinates are 0
           jQuery('#cgp-locator').submit(function(e) {
-            console.log(jQuery('#lat').val(), jQuery('#lng').val());
             if (jQuery('#lat').val() == 0 && jQuery('#lng').val() == 0) {
               e.preventDefault();
               jQuery('#error-form-cgp').removeClass('d-none');
@@ -80,7 +79,6 @@
           });
 
           map.markers.push(marker);
-          console.log("Processing", cgp.title, "at latitude", cgp.lat, "and longitude", cgp.lng, "with index", index);
 
           marker.addListener('click', () => {
             map.setCenter(marker.getPosition());
