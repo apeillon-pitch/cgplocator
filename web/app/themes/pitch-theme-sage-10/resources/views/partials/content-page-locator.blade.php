@@ -81,7 +81,7 @@
           map.markers.push(marker);
 
           marker.addListener('click', () => {
-            map.setCenter(marker.getPosition());
+            map.panTo(marker.getPosition());
             infoWindow.close();
             infoWindow.setContent(cgp.tooltip);
             infoWindow.open(map, marker);
