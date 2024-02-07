@@ -17,27 +17,14 @@
         t.parentNode.insertBefore(e, t);
       })(document, "script");
     </script>-->
-    <!-- Matomo -->
-    <script>
-      var _paq = window._paq = window._paq || [];
-      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u="https://nortia.matomo.cloud/";
-        _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '1']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.async=true; g.src='//cdn.matomo.cloud/nortia.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-      })();
-    </script>
-    <!-- End Matomo Code -->
     <!-- Matomo Tag Manager -->
     <script>
       var _mtm = window._mtm = window._mtm || [];
       _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.async=true; g.src='https://cdn.matomo.cloud/nortia.matomo.cloud/container_R4NestGl.js'; s.parentNode.insertBefore(g,s);
+      (function() {
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src='https://cdn.matomo.cloud/nortia.matomo.cloud/container_NttF2Uko.js'; s.parentNode.insertBefore(g,s);
+      })();
     </script>
     <!-- End Matomo Tag Manager -->
     <?php wp_head(); ?>
