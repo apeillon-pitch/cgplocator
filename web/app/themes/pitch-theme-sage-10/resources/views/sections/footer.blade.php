@@ -61,4 +61,6 @@
   </div>
 </footer>
 @include('components.mobile-menu')
+@include('partials.template-parts.modal-login')
 @include('partials.template-parts.modal-site-selector')
+@include('partials.template-parts.modal-disclaimer')

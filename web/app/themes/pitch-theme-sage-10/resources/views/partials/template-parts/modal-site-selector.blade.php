@@ -5,14 +5,14 @@
     <div class="modal-dialog modal-xl modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
-          <div class="row">
-            <div class="col-12 text-center">
+          <div class="row justify-content-center">
+            <div class="col-6 col-sm-7 col-lg-12 text-center">
               <img src="@asset('images/nortia-white.svg')" alt="" class="img-fluid mb-5 pb-4">
             </div>
             @if ($options_data['modal_site_selector']['block_repeater'])
               @foreach($options_data['modal_site_selector']['block_repeater'] as $item)
                 <div class="col-12 col-md-6 text-center mb-5 pb- mb-md-0">
-                  <div class="wrapper-block h-100">
+                  <div class="wrapper-block bg-{{ $item['bg_color'] }} h-100">
                     @if ($item['icon'])
                       <div class="wrapper-icon">
                         <img src="{!! $item['icon']['url'] !!}" class="img-fluid" alt="{!! $item['icon']['alt'] !!}">
@@ -42,7 +42,7 @@
             @endif
           </div>
           @if ($options_data['modal_site_selector']['mention'])
-            <div class="row mt-4">
+            <div class="row mt-sm-4">
               <div class="col-12 text-white">
                 <p>{!! $options_data['modal_site_selector']['mention'] !!}</p>
               </div>

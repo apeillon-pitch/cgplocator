@@ -84,11 +84,30 @@
       border: 0;
       background-color: transparent;
 
+      img.logo {
+        margin-bottom: 3rem;
+
+        @include media-breakpoint-down(md) {
+          display: block;
+          width: 170px;
+          height: auto;
+          margin: 0 auto 35px;
+        }
+      }
+
       .wrapper-block {
         position: relative;
         padding: 100px 50px 50px;
         border-radius: 10px;
-        background-color: $pastel;
+        background-color: #fff6f1;
+
+        @include media-breakpoint-down(md) {
+          padding: 100px 30px 30px;
+        }
+
+        @include media-breakpoint-down(sm) {
+          padding: 60px 45px 30px;
+        }
 
         .wrapper-icon {
           width: 152px;
@@ -102,18 +121,86 @@
           top: -70px;
           transform: translateX(-50%);
           box-shadow: 0 0 20px rgba(0, 0, 0, 0.21);
+          background-color: #fff6f1;
+
+          @include media-breakpoint-down(md) {
+            width: 125px;
+            height: 125px;
+            top: -30px;
+          }
+
+          @include media-breakpoint-down(sm) {
+            height: 80px;
+            width: 80px;
+            top: -36px;
+          }
+
+          img {
+            @include media-breakpoint-down(sm) {
+              max-width: 50px;
+            }
+          }
+        }
+
+        &.bg-blue {
           background-color: $pastel;
+
+          .wrapper-icon {
+            background-color: $pastel;
+          }
         }
 
         strong {
-          font-size: 28px;
+          font-size: 1.75rem;
           font-weight: 800;
           margin-bottom: 25px;
+
+          @include media-breakpoint-down(md) {
+            font-size: 1.25rem;
+          }
         }
       }
 
       p {
         font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+#disclaimerModal {
+  .modal-content {
+    .modal-header {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border: 0;
+      padding: 50px 49px 20px;
+      background-color: #fff6f1 !important;
+
+      button.close {
+        border: 0;
+        color: $darkGrey;
+        background: transparent;
+
+        &:hover {
+          color: $orange;
+        }
+
+        i {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .modal-body {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding: 16px 49px 50px;
+      background-color: #fff6f1 !important;
+
+      button.btn-primary {
+        display: block;
+        margin: 30px auto 0;
       }
     }
   }

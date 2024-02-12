@@ -303,6 +303,33 @@
   }
 }
 
+.form-cgp {
+  .wrapper {
+    padding: 50px 0;
+    border-radius: 10px;
+  }
+}
+
+form {
+  input,
+  .form-control {
+    &:focus {
+      box-shadow: none;
+      border-color: #ced4da;
+    }
+  }
+
+  &#cgp-locator {
+    input {
+      border-radius: 7px 0 0 7px;
+    }
+
+    button[type="submit"] {
+      border-radius: 0 7px 7px 0;
+    }
+  }
+}
+
 .form-newsletter {
   .gform_wrapper {
     &.gravity-theme {

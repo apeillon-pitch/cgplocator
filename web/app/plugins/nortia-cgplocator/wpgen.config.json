@@ -1,0 +1,14 @@
+{
+    "plugin_name": "Nortia — CGP Locator",
+    "plugin_description": "Extension nécessaire au fonctionnement du CGP Locator.",
+    "plugin_author": "Le Pitch",
+    "plugin_author_url": "https:\/\/wordpress.lepitch-web.com\/",
+    "plugin_text_domain": "nortia-cgplocator",
+    "plugin_namespace": "NortiaCGPLocator",
+    "plugin_constants_prefix": "NORTIACGP_",
+    "plugin_main_class": "NortiaCGPLocator",
+    "plugin_filter_prefix": "nortia_cgp_",
+    "composer_package_name": "lepitch\/nortia-cgplocator",
+    "composer_author_name": "Vincent Datrier",
+    "composer_author_email": "vdatrier@lepitch.fr"
+}

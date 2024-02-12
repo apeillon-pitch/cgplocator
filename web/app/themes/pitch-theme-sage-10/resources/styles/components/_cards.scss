@@ -343,3 +343,20 @@
     }
   }
 }
+
+.cgp-card {
+  padding: 2rem 0;
+  border-top: 1px solid $mediumGrey;
+
+  h2 {
+    font-family: $nexa;
+    font-size: 1.125rem;
+    font-weight: 800;
+    margin-bottom: 0.625rem;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+}

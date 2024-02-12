@@ -15,7 +15,7 @@
   div {
     -ms-flex-item-align: end;
     align-self: flex-end;
-    height: 2px;
+    height: 3px;
     width: 100%;
     background-color: black;
 
@@ -194,6 +194,10 @@
           top: 10% !important;
           transform: rotate(-90deg) !important;
         }
+      }
+
+      .dropdown-menu.show {
+        display: none !important;
       }
     }
   }

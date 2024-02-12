@@ -276,5 +276,17 @@
       border-radius: 10px;
       background-color: white;
     }
+
+    &.pt-none {
+      .wrapper {
+        padding-top: 0;
+      }
+    }
+
+    &.pb-none {
+      .wrapper {
+        padding-bottom: 0;
+      }
+    }
   }
 }
