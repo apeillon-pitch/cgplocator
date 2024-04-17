@@ -27,7 +27,7 @@
             @php $post_per_page = 3; $news = getNews($post_per_page); @endphp
             @break
             @case('manual')
-            @php $news = $section['article_selection'] @endphp
+            @php $news = $section['news_selection'] @endphp
             @break
         @endswitch
         @if ($news)
