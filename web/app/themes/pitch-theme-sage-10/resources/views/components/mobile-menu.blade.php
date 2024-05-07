@@ -14,11 +14,11 @@
     </div>
     <div class="row justify-content-center h-100">
       <div class="col-11">
-        <nav id="menu-mobile-data" class="nav-primary navbar">
-          @if (has_nav_menu('primary_mobile_navigation'))
-            {!! wp_nav_menu($mobilemenu) !!}
-          @endif
-        </nav>
+{{--        <nav id="menu-mobile-data" class="nav-primary navbar">--}}
+{{--          @if (has_nav_menu('primary_mobile_navigation'))--}}
+{{--            {!! wp_nav_menu($mobilemenu) !!}--}}
+{{--          @endif--}}
+{{--        </nav>--}}
         @if($header_data['data']['cta_repeater'])
           <div class="d-flex flex-column w-100">
             @foreach($header_data['data']['cta_repeater'] as $cta)
