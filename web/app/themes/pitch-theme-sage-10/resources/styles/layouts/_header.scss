@@ -26,10 +26,10 @@
     margin: 0 auto;
 
     @include media-breakpoint-down(md) {
+      display: block;
       width: 97.5px;
       min-width: 97.5px;
-      margin: 0;
-      float: right;
+      margin: 0 auto;
     }
   }
 

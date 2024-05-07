@@ -1,6 +1,6 @@
 <header id="o-wrapper" class="banner">
   <div class="row justify-content-between align-items-center">
-    <div class="col-6 col-md-4 flex-row align-items-center">
+    <div class="col-4 flex-row align-items-center">
       <div class="toggle-switch-container">
         <div class="toggle-switch switch-vertical">
           <input id="toggle-a" type="radio" name="switch"/>
@@ -27,16 +27,16 @@
         </div>
       </div>
     </div>
-    <div class="col-6 col-md-4 justify-content-center">
+    <div class="col-4 justify-content-center">
       <a href="{{ home_url() }}">
-        <img src="{!! $header_data['data']['logo']['url'] !!}" class="img-fluid logo"
+        <img src="{!! $header_data['data']['logo']['url'] !!}" class="img-fluid d-block mx-auto logo"
              alt="{!! $header_data['data']['logo']['alt'] !!}">
       </a>
     </div>
-    <div class="d-none d-md-block col-md-4 flex-row align-items-center">
+    <div class="col-4 flex-row align-items-center">
       @if($header_data['data']['cta_repeater'])
         <div
-          class="d-none d-md-flex flex-column flex-lg-row justify-content-end align-items-end align-items-lg-center me-5 me-md-0">
+          class="d-flex flex-column flex-row text-end justify-content-end align-items-end me-0">
           @foreach($header_data['data']['cta_repeater'] as $cta)
             @switch($cta['link_type'])
               @case('internal')
