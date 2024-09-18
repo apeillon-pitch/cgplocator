@@ -4,7 +4,7 @@ use NortiaCGPLocator\Geolocator\GeolocatorComponent;
 
 function my_acf_init()
 {
-  acf_update_setting('google_api_key', 'AIzaSyCcO_gEq7lWm1Sdu12YB2u2v3Mr-qKiz44');
+  acf_update_setting('google_api_key', 'AIzaSyAUuSROiP4lNHw8bukhc0C7On43TnZuQ5E');
 }
 
 add_action('acf/init', 'my_acf_init');
