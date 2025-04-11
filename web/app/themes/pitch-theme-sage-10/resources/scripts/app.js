@@ -11,6 +11,7 @@ window.bootstrap = require('bootstrap');
 import 'slick-carousel/slick/slick.min';
 //import '@fortawesome/fontawesome-pro/js/fontawesome.min';
 //import '@fortawesome/fontawesome-pro/js/all.min';
+import 'select2';
 
 /**
  * app.main
