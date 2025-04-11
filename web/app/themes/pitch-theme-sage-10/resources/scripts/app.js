@@ -21,6 +21,7 @@ const main = async (err) => {
         console.error(err);
     }
 
+    setSelect2();
     loadMoreCgp();
     checkCookie();
     getCaseStudiesOnFilterChange();
@@ -39,6 +40,14 @@ const main = async (err) => {
     getStickyMenu();
     getGeoLocation();
     gMapAutocomplete();
+
+  function setSelect2() {
+    jQuery('.ginput_container_select select').select2({
+      minimumResultsForSearch: Infinity,
+      placeholder: 'Votre budget estimatif',
+    });
+
+  }
 
     function loadMoreCgp() {
         jQuery('#loadMore').on('click', function () {
