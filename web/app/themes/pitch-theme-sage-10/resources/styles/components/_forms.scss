@@ -300,6 +300,37 @@
         }
       }
     }
+
+    .ginput_container_select {
+      height: 53px;
+    }
+
+    .select2 {
+      width: 100%;
+      min-width: 220px;
+
+      .select2-selection {
+        height: 53px;
+        min-height: 53px;
+        background-color: white;
+        box-shadow: none;
+        font-size: 1.125rem;
+        line-height: 1.3;
+        border-radius: 7px;
+        border: solid 1px #a7a7a7;
+
+        .select2-selection__rendered {
+          line-height: inherit;
+          padding: 14px 20px;
+          color: #000;
+        }
+      }
+
+      .select2-selection__arrow {
+        right: 15px;
+        top: 15px;
+      }
+    }
   }
 }
 
