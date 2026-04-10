@@ -15,14 +15,26 @@
             @if ($section['introduction'])
               {!! $section['introduction'] !!}
             @endif
+            @if ($section['cta_app_repeater'])
+              <div class="wrapper-cta mt-2">
+                <a class="d-flex flex-row">
+                  @foreach($section['cta_app_repeater'] as $cta)
+                    <a href="{{ $cta['external_link_url'] }}" target="_blank" aria-label="App Store">
+                      {!! wp_get_attachment_image( $cta['link_logo']['id'], 'full', '', array( "class" => "img-fluid me-3 mb-2") ) !!}
+                    </a>
+                @endforeach
+              </div>
+            @endif
             <div class="row justify-content-lg-start mt-2">
               <div class="col-12 col-lg-10">
                 <div class="d-flex flex-column">
-                  <form id="cgp-locator" action="{!!wp_make_link_relative(get_permalink($options_data['cgp']['cgp_page'][0]->ID))!!}" method="post">
+                  <form id="cgp-locator"
+                        action="{!!wp_make_link_relative(get_permalink($options_data['cgp']['cgp_page'][0]->ID))!!}"
+                        method="post">
                     <div class="d-flex flex-row justify-content-between g-0 mb-4">
                       <div class="d-flex flex-grow-1">
                         <input type="text" class="form-control h-100" placeholder="Adresse, Ville, Code postal"
-                          id="locationField">
+                               id="locationField">
                         <input type="hidden" id="lat" name="lat">
                         <input type="hidden" id="lng" name="lng">
                       </div>
@@ -31,9 +43,12 @@
                         </button>
                       </div>
                     </div>
-                    <button class="d-flex flex-row align-items-center btn btn-primary w-100 justify-content-center" id="geolocation">
-                      <span class="me-2" id="geoButtonText">Géolocalisez-moi <i class="fa-regular fa-location-crosshairs"></i></span>
-                      <div id="spinner" class="spinner-border spinner-border-sm text-light" style="display:none;" role="status">
+                    <button class="d-flex flex-row align-items-center btn btn-primary w-100 justify-content-center"
+                            id="geolocation">
+                      <span class="me-2" id="geoButtonText">Géolocalisez-moi <i
+                          class="fa-regular fa-location-crosshairs"></i></span>
+                      <div id="spinner" class="spinner-border spinner-border-sm text-light" style="display:none;"
+                           role="status">
                         <span class="visually-hidden">Géolocalisation en cours...</span>
                       </div>
                     </button>
