@@ -15,6 +15,16 @@
             @if ($section['introduction'])
               {!! $section['introduction'] !!}
             @endif
+            @if ($section['cta_app_repeater'])
+              <div class="wrapper-cta pb-4">
+                <a class="d-flex flex-row">
+                  @foreach($section['cta_app_repeater'] as $cta)
+                    <a href="{{ $cta['external_link_url'] }}" target="_blank" aria-label="App Store">
+                      {!! wp_get_attachment_image( $cta['link_logo']['id'], 'full', '', array( "class" => "img-fluid me-3 mb-2") ) !!}
+                    </a>
+                @endforeach
+              </div>
+            @endif
             @if ($section['cta_repeater'])
               <div class="wrapper-cta">
                 <div class="d-flex flex-column">
