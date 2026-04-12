@@ -87,7 +87,6 @@
     "wpengine/advanced-custom-fields-pro": "*",
     "wp-media/wp-rocket": "^3.11",
     "wpackagist-plugin/classic-editor": "^1.6",
-    "deliciousbrains-plugin/wp-migrate-db-pro": "^2.3",
     "gravityforms/gravityforms": "*",
     "roots/acorn": "^2.1"
   },
