@@ -282,6 +282,20 @@
         height: calc(100% - 360px);
       }
     }
+
+    &.four {
+      color: white;
+      background-color: $orange;
+
+      .wrapper-content {
+        padding: 0;
+      }
+
+      .btn-primary {
+        color: $orange;
+        background-color: white;
+      }
+    }
   }
 }
 
