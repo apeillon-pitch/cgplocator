@@ -1,3 +1,5 @@
+@include('sections.site-alert')
+
 @include('sections.header')
 
   <main id="main" class="main">
